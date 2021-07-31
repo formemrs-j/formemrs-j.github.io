@@ -6,7 +6,7 @@
   <link href="https://formemrs-j.github.io/atom.xml" rel="self"/>
   
   <link href="https://formemrs-j.github.io/"/>
-  <updated>2021-07-31T15:37:05.864Z</updated>
+  <updated>2021-07-31T16:39:56.767Z</updated>
   <id>https://formemrs-j.github.io/</id>
   
   <author>
@@ -15,6 +15,74 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mini program</title>
+    <link href="https://formemrs-j.github.io/2021/08/01/mini-program/"/>
+    <id>https://formemrs-j.github.io/2021/08/01/mini-program/</id>
+    <published>2021-07-31T16:35:35.000Z</published>
+    <updated>2021-07-31T16:39:56.767Z</updated>
+    
+    
+    
+    
+    <category term="code" scheme="https://formemrs-j.github.io/categories/code/"/>
+    
+    
+    <category term="mini program" scheme="https://formemrs-j.github.io/tags/mini-program/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>electric circuit</title>
+    <link href="https://formemrs-j.github.io/2021/08/01/electric-circuit/"/>
+    <id>https://formemrs-j.github.io/2021/08/01/electric-circuit/</id>
+    <published>2021-07-31T16:35:04.000Z</published>
+    <updated>2021-07-31T16:41:13.753Z</updated>
+    
+    
+    
+    
+    <category term="Electric" scheme="https://formemrs-j.github.io/categories/Electric/"/>
+    
+    
+    <category term="circuit" scheme="https://formemrs-j.github.io/tags/circuit/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C language</title>
+    <link href="https://formemrs-j.github.io/2021/08/01/c-language/"/>
+    <id>https://formemrs-j.github.io/2021/08/01/c-language/</id>
+    <published>2021-07-31T16:34:05.000Z</published>
+    <updated>2021-07-31T16:38:48.643Z</updated>
+    
+    
+    
+    
+    <category term="code" scheme="https://formemrs-j.github.io/categories/code/"/>
+    
+    
+    <category term="C language" scheme="https://formemrs-j.github.io/tags/C-language/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Liner algebra</title>
+    <link href="https://formemrs-j.github.io/2021/08/01/liner-algebra/"/>
+    <id>https://formemrs-j.github.io/2021/08/01/liner-algebra/</id>
+    <published>2021-07-31T16:33:34.000Z</published>
+    <updated>2021-07-31T16:38:51.000Z</updated>
+    
+    
+    
+    
+    <category term="Mathmatics" scheme="https://formemrs-j.github.io/categories/Mathmatics/"/>
+    
+    
+    <category term="Engineering Mathematics" scheme="https://formemrs-j.github.io/tags/Engineering-Mathematics/"/>
+    
+  </entry>
   
   <entry>
     <title>Python note</title>
