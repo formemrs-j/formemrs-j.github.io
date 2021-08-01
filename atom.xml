@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>wwj的杂货铺</title>
+  <title>WWJ&#39;s Grocery Store</title>
   
-  <subtitle>大雾四起</subtitle>
+  <subtitle>Flipped</subtitle>
   <link href="https://formemrs-j.github.io/atom.xml" rel="self"/>
   
   <link href="https://formemrs-j.github.io/"/>
-  <updated>2021-07-31T16:39:56.767Z</updated>
+  <updated>2021-08-01T14:59:57.957Z</updated>
   <id>https://formemrs-j.github.io/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Electric-circuit</title>
+    <link href="https://formemrs-j.github.io/2021/08/01/electric-circuit/"/>
+    <id>https://formemrs-j.github.io/2021/08/01/electric-circuit/</id>
+    <published>2021-08-01T14:58:55.000Z</published>
+    <updated>2021-08-01T14:59:57.957Z</updated>
+    
+    
+    
+    
+    <category term="electric" scheme="https://formemrs-j.github.io/categories/electric/"/>
+    
+    
+    <category term="circuit" scheme="https://formemrs-j.github.io/tags/circuit/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>The Story of An Hour</title>
+    <link href="https://formemrs-j.github.io/2021/08/01/daily/"/>
+    <id>https://formemrs-j.github.io/2021/08/01/daily/</id>
+    <published>2021-08-01T13:15:55.000Z</published>
+    <updated>2021-08-01T15:02:10.478Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;The-Story-of-An-Hour&quot;&gt;&lt;a href=&quot;#The-Story-of-An-Hour&quot; class=&quot;headerlink&quot; title=&quot;The Story of An Hour&quot;&gt;&lt;/a&gt;The Story of An</summary>
+        
+      
+    
+    
+    
+    <category term="daily" scheme="https://formemrs-j.github.io/categories/daily/"/>
+    
+    
+    <category term="diary" scheme="https://formemrs-j.github.io/tags/diary/"/>
+    
+  </entry>
   
   <entry>
     <title>mini program</title>
@@ -30,23 +72,6 @@
     
     
     <category term="mini program" scheme="https://formemrs-j.github.io/tags/mini-program/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>electric circuit</title>
-    <link href="https://formemrs-j.github.io/2021/08/01/electric-circuit/"/>
-    <id>https://formemrs-j.github.io/2021/08/01/electric-circuit/</id>
-    <published>2021-07-31T16:35:04.000Z</published>
-    <updated>2021-07-31T16:41:13.753Z</updated>
-    
-    
-    
-    
-    <category term="Electric" scheme="https://formemrs-j.github.io/categories/Electric/"/>
-    
-    
-    <category term="circuit" scheme="https://formemrs-j.github.io/tags/circuit/"/>
     
   </entry>
   
@@ -89,14 +114,14 @@
     <link href="https://formemrs-j.github.io/2021/07/31/python-note/"/>
     <id>https://formemrs-j.github.io/2021/07/31/python-note/</id>
     <published>2021-07-31T13:01:24.000Z</published>
-    <updated>2021-07-31T15:37:05.864Z</updated>
+    <updated>2021-08-01T14:49:10.785Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;2021-07-31&quot;&gt;&lt;a href=&quot;#2021-07-31&quot; class=&quot;headerlink&quot; title=&quot;2021/07/31&quot;&gt;&lt;/a&gt;2021/07/31&lt;/h1&gt;&lt;h1 id=&quot;python-笔记&quot;&gt;&lt;a href=&quot;#python-笔记&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;python-笔记&quot;&gt;&lt;a href=&quot;#python-笔记&quot; class=&quot;headerlink&quot; title=&quot;python 笔记&quot;&gt;&lt;/a&gt;python</summary>
         
       
     
@@ -110,11 +135,11 @@
   </entry>
   
   <entry>
-    <title>number the Star中译版</title>
+    <title>Number The Star中译版</title>
     <link href="https://formemrs-j.github.io/2021/07/31/number-the-star-zhong-yi-ban/"/>
     <id>https://formemrs-j.github.io/2021/07/31/number-the-star-zhong-yi-ban/</id>
     <published>2021-07-30T21:42:12.000Z</published>
-    <updated>2021-07-31T07:49:52.588Z</updated>
+    <updated>2021-08-01T15:32:25.724Z</updated>
     
     
       
