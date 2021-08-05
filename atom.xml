@@ -6,7 +6,7 @@
   <link href="https://formemrs-j.github.io/atom.xml" rel="self"/>
   
   <link href="https://formemrs-j.github.io/"/>
-  <updated>2021-08-01T14:59:57.957Z</updated>
+  <updated>2021-08-05T17:17:33.123Z</updated>
   <id>https://formemrs-j.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用教育邮箱安装正版matlab</title>
+    <link href="https://formemrs-j.github.io/2021/08/06/li-yong-jiao-yu-you-xiang-an-zhuang-zheng-ban-matlab/"/>
+    <id>https://formemrs-j.github.io/2021/08/06/li-yong-jiao-yu-you-xiang-an-zhuang-zheng-ban-matlab/</id>
+    <published>2021-08-05T17:06:51.000Z</published>
+    <updated>2021-08-05T17:17:33.123Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ul><li><p>1.<a href="https://uk.mathworks.com/products/get-matlab.html?s_tid=gn_getml">单击这里进入matlab官网</a></p></li><li><p>2.<img src="https://s3.bmp.ovh/imgs/2021/08/18f6ae94913b6d00.png"></p><p>点击 Check for access  </p></li><li></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;步骤&quot;&gt;&lt;a href=&quot;#步骤&quot; class=&quot;headerlink&quot; title=&quot;步骤&quot;&gt;&lt;/a&gt;步骤&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;1.&lt;a href=&quot;https://uk.mathworks.com/products/get-matlab.html?</summary>
+      
+    
+    
+    
+    <category term="software" scheme="https://formemrs-j.github.io/categories/software/"/>
+    
+    
+    <category term="matlab" scheme="https://formemrs-j.github.io/tags/matlab/"/>
+    
+  </entry>
   
   <entry>
     <title>Electric-circuit</title>
