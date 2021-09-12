@@ -6,7 +6,7 @@
   <link href="https://formemrs-j.github.io/atom.xml" rel="self"/>
   
   <link href="https://formemrs-j.github.io/"/>
-  <updated>2021-08-11T15:47:17.447Z</updated>
+  <updated>2021-09-12T09:26:26.478Z</updated>
   <id>https://formemrs-j.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python_daily</title>
+    <link href="https://formemrs-j.github.io/2021/09/12/python-daily/"/>
+    <id>https://formemrs-j.github.io/2021/09/12/python-daily/</id>
+    <published>2021-09-12T09:23:50.000Z</published>
+    <updated>2021-09-12T09:26:26.478Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul><li>2021.9.12</li></ul><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;2021.9.12&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; ti</summary>
+      
+    
+    
+    
+    <category term="python" scheme="https://formemrs-j.github.io/categories/python/"/>
+    
+    
+    <category term="python" scheme="https://formemrs-j.github.io/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>云战役</title>
@@ -178,30 +205,6 @@
     
     
     <category term="Engineering Mathematics" scheme="https://formemrs-j.github.io/tags/Engineering-Mathematics/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python note</title>
-    <link href="https://formemrs-j.github.io/2021/07/31/python-note/"/>
-    <id>https://formemrs-j.github.io/2021/07/31/python-note/</id>
-    <published>2021-07-31T13:01:24.000Z</published>
-    <updated>2021-08-01T14:49:10.785Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="python-笔记"><a href="#python-笔记" class="headerlink" title="python 笔记"></a>python 笔记</h1>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;python-笔记&quot;&gt;&lt;a href=&quot;#python-笔记&quot; class=&quot;headerlink&quot; title=&quot;python 笔记&quot;&gt;&lt;/a&gt;python 笔记&lt;/h1&gt;</summary>
-      
-    
-    
-    
-    <category term="python" scheme="https://formemrs-j.github.io/categories/python/"/>
-    
-    
-    <category term="python" scheme="https://formemrs-j.github.io/tags/python/"/>
     
   </entry>
   
