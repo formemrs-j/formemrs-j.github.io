@@ -40,9 +40,9 @@
 
     <script src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="WWJ's Grocery" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="WWJ's Grocery" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -427,14 +427,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-19
+                    2021-09-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    3.3k
                 </div>
                 
 
@@ -459,10 +459,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="每日进度"><a href="#每日进度" class="headerlink" title="每日进度"></a>每日进度</h2><ul>
-<li><strong>2021.9.19 第五章变量与运算符</strong><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2></li>
+                <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="声明-学习资料源于网络"><a href="#声明-学习资料源于网络" class="headerlink" title="声明(学习资料源于网络)"></a>声明(学习资料源于网络)</h2><h2 id="学习进度"><a href="#学习进度" class="headerlink" title="学习进度"></a>学习进度</h2><ul>
+<li><strong>2021.9.19 第五章变量与运算符</strong></li>
+<li><strong>2021.9.20</strong></li>
 </ul>
-<p><strong>数字整型，浮点</strong></p>
+<h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><p><strong>数字整型，浮点</strong></p>
 <ul>
 <li><p>python number数据类型包含整型(int)和浮点型(float),float不区分单双精度，默认为双精度</p>
 </li>
@@ -875,7 +876,151 @@ True
 
 <p><strong>变量与运算符思维导图</strong></p>
 <p><img src="https://s3.bmp.ovh/imgs/2021/09/77e9e8c4d017da03.png"></p>
-<h2 id="分支，循环，条件，与枚举"><a href="#分支，循环，条件，与枚举" class="headerlink" title="分支，循环，条件，与枚举"></a>分支，循环，条件，与枚举</h2>
+<h2 id="分支，循环，条件，与枚举"><a href="#分支，循环，条件，与枚举" class="headerlink" title="分支，循环，条件，与枚举"></a>分支，循环，条件，与枚举</h2><p><strong>表达式</strong></p>
+<ul>
+<li>表达式(Expression)是运算符(operator)和操作数(operand)所构成的序列</li>
+<li>同级表达式遵从左结合的运算规则(即从左向右进行)</li>
+<li>含有赋值运算符的遵从右结合(即等号右边优先计算）</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">Python 3.9.2 (tags/v3.9.2:1a79785, Feb 19 2021, 13:44:55) [MSC v.1928 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+&gt;&gt;&gt; a=1
+&gt;&gt;&gt; b=2
+&gt;&gt;&gt; c=2
+&gt;&gt;&gt; not a or b+2 ==c
+False
+&gt;&gt;&gt; (not a) or ((b+2) ==c)
+False
+&gt;&gt;&gt; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>python变量和常量的命名规则</strong></p>
+<ul>
+<li>常量命名全部大写</li>
+<li>变量用_连接，例如user_account，而不用userAccount</li>
+</ul>
+<p><strong>流程控制语句</strong></p>
+<ul>
+<li>if else</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">mood = False
+if mood :
+    print('go to left')
+else :
+    print('go to right')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>输出结果</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">PS D:\py&gt; python c1.py
+go to right<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>简单的登录小程序</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">ACCOUNT="wwj"
+PASSWORD="123456"
+print("请输入账号")
+user_account = input()
+print("请输入密码")
+user_password = input()
+if user_account == ACCOUNT and user_password == PASSWORD:
+    print("登录成功")
+else:
+    print("登录失败")<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>elif用法</strong></p>
+<ul>
+<li>elif不能单独使用，必须和if语句配套使用</li>
+<li>elif使代码更加简洁</li>
+</ul>
+<p><strong>错误分析</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a = input()
+if a == 1:
+    print("apple")
+elif a== 2:
+    print("banana")
+else:
+    print("peach")<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>错误原因，代码无论输入什么都是输出“peach”，因为输入的是字符串，而判断的是数字</li>
+</ul>
+<p><strong>改进</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a = input()
+a=int(a)
+if a == 1:
+    print("apple")
+elif a== 2:
+    print("banana")
+else:
+    print("peach")<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>添加语句 a=int(a)，强制转换成整数型</li>
+<li>在进行简单判断时，不要思维定势，可以用简单的逻辑运算符代替</li>
+</ul>
+<p><strong>循环语句</strong></p>
+<p><strong>while</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">counter = 1
+
+while counter &lt;= 10:
+    counter+=1
+    print(counter)
+else:
+    print("结束") <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>while循环容易出现死循环，一般用for代替</li>
+</ul>
+<p><strong>for in</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a=[["apple","banana","peach"],(1,2,3)]
+for x in a:
+    for y in x:
+        print(y)
+else:
+    print("end")<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>for in常用于遍历字典 列表</li>
+<li>for in 可以配合else使用</li>
+</ul>
+<p><strong>for in range()</strong></p>
+<ul>
+<li>指定次数循环</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">for x in range(1,10):
+    if x == 3:
+        break
+    print(x)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>可以搭配break使用，直接跳出循环</li>
+<li>也可以配合continue使用,除了判断的这个条件不执行，其他继续执行</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">for x in range(1,10):
+    if x == 3:
+        continue
+    print(x)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>切片代替for</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a=[1,2,3,4,5,6,7,8]
+for x in range(0,len(a),2):
+    print(a[x])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>可以打印出，1，3，5，7</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a=[1,2,3,4,5,6,7,8]
+# for x in range(0,len(a),2):
+#     print(a[x])
+b=a[0:len(a):2]
+print(b)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>用切片一样可以代替</li>
+</ul>
+<h2 id="包，模块，函数，变量的作用域"><a href="#包，模块，函数，变量的作用域" class="headerlink" title="包，模块，函数，变量的作用域"></a>包，模块，函数，变量的作用域</h2><p><strong>python项目的组织结构</strong></p>
+
                 
             </div>
             <hr/>
@@ -1620,7 +1765,7 @@ True
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">47.8k</span>
+                        class="white-color">48.4k</span>
             
             
             
