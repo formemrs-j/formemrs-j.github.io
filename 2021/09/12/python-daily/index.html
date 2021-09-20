@@ -40,9 +40,9 @@
 
     <script src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="WWJ's Grocery" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="WWJ's Grocery" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -434,7 +434,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.3k
+                    4.2k
                 </div>
                 
 
@@ -1020,7 +1020,219 @@ print(b)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
 <li>用切片一样可以代替</li>
 </ul>
 <h2 id="包，模块，函数，变量的作用域"><a href="#包，模块，函数，变量的作用域" class="headerlink" title="包，模块，函数，变量的作用域"></a>包，模块，函数，变量的作用域</h2><p><strong>python项目的组织结构</strong></p>
+<ul>
+<li>包，模块，类，函数，变量</li>
+</ul>
+<p><strong>导入模块</strong></p>
+<ul>
+<li>方法一</li>
+<li>import方法</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import t.c4 
+print(t.c4.a)
+print(t.c4.b)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
+<ul>
+<li>方法二</li>
+<li>简化写法 import as</li>
+<li>将模块名在引用时重命名达到简写的目的</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import t.c4 as w
+print(w.a)
+print(w.b)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>方法三</li>
+<li>from 模块 import * 导入包内所有变量，也可引入单个变量</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from t.c4 import *
+print(a)
+print(b)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>方法四</li>
+<li>方法三的加强，在要导入的模块添加“__all__”变量,限制引入的变量</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">__all__=["a","b","c"]
+a = 1
+b = 2
+c = 3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>方法五</li>
+<li>from 包 引入 模块</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from t import c4
+print(c4.a)
+print(c4.b)
+print(c4.c)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>包文件中有一个__init__.py的头文件，导入包时会优先执行头文件中的内容</li>
+<li>可以在头文件中添加<strong>all</strong>变量来限制导入的内容</li>
+<li>导入包时禁止循环导入，python会自动报错</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">__all__=["a"]
+a = 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>方法六</li>
+<li>引入多个变量可以使用都好隔开</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from t.c4 import a,b,c 
+print(a)
+print(b)
+print(c)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>内置变量</strong></p>
+<ul>
+<li>可以用**dir()**函数查看当前模块内的所有变量(包括内置的)</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">infos = dir()
+print(infos)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><strong>绝对导入和相对导入</strong></p>
+<ul>
+<li>入口文件不能用相对导入</li>
+<li>模块可以相对导入，但是不能超过顶级包</li>
+<li>入口文件可以直接导入</li>
+</ul>
+<h2 id="python函数"><a href="#python函数" class="headerlink" title="python函数"></a>python函数</h2><p><strong>特性</strong></p>
+<ul>
+<li>功能性</li>
+<li>隐藏细节</li>
+<li>避免编写重复的代码</li>
+</ul>
+<p><strong>自定义函数</strong></p>
+<ul>
+<li>def 函数名():</li>
+</ul>
+<p><strong>自己定义的加法函数和打印函数</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def add(x,y):
+    result=x+y
+    return result
+def printing(code):
+    print(code)
+print(add(1,2))
+printing("test")<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>让函数返回多个结果</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def add(x,y):
+    result1=x+y
+    result2=x*y
+    return result1,result2
+a,b = add(1,2)
+print(a,b)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>return多个值以逗号隔开</li>
+</ul>
+<p><strong>序列解包与链式赋值</strong></p>
+<ul>
+<li>序列解包</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a = 1,2,3
+b,c,d=a
+print(b,c,d)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>链式赋值</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a=b=c=1
+print(a,b,c)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><strong>形参和实参</strong></p>
+<ul>
+<li>函数中定义的参数为形式参数</li>
+<li>调用时传入的参数为实际参数</li>
+</ul>
+<p><strong>必须参数和关键字参数</strong></p>
+<ul>
+<li>必须参数函数执行时必须要传递的函数</li>
+<li>关键字参数可以解决调用时参数的位置</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def add(x,y):#x,y即为形式参数
+    result1=x+y
+    result2=x*y
+    return result1,result2
+a,b = add(y=1,x=2)#1,2为实际参数
+print(a,b)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>默认参数</strong></p>
+<ul>
+<li>即在函数调用中需要重复传入的参数可以使用默认参数</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def student_file(name,gender="男",age="18",college="人民路小学"):
+    print("我叫"+name)
+    print("性别"+gender)
+    print("我今年"+age+"岁")
+    print("我在"+college+"上学")
+student_file("卢本伟")<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>默认参数可以修改，在调用时传入即可</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def student_file(name,gender="男",age="18",college="人民路小学"):
+    print("我叫"+name)
+    print("性别"+gender)
+    print("我今年"+age+"岁")
+    print("我在"+college+"上学")
+student_file("卢本伟","女")<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>也可以搭配关键字参数使用</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def student_file(name,gender="男",age="18",college="人民路小学"):
+    print("我叫"+name)
+    print("性别"+gender)
+    print("我今年"+age+"岁")
+    print("我在"+college+"上学")
+student_file("卢本伟",gender="女")<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>可变参数</strong></p>
+<ul>
+<li>用于接收一组数据，例如元组，列表</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def demo(*param):
+    print(param)
+    sum=0
+    for x in param:
+        sum+=x*x
+    print(sum)
+demo(1,2,3)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>关键字可变参数</strong></p>
+<ul>
+<li>接收一组数据，一般为字典</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def city_tem(**param):
+    for x,y in param.items():
+        print(x,y)
+a = {"bj":"32c","hz":"25c"}
+city_tem(**a)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>变量的作用域</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">c = 1 #全局变量
+def demo():
+    a=1 #局部变量
+    print(c)
+demo()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>变量的作用域链</strong></p>
+<ul>
+<li>就近优先原则</li>
+</ul>
+<p><strong>global</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def demo():
+    global a
+    a=1
+demo()
+print(a)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>使函数内部的局部变量转换成全局变量供外部调用</li>
+</ul>
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2>
                 
             </div>
             <hr/>
@@ -1765,7 +1977,7 @@ print(b)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">48.4k</span>
+                        class="white-color">49.3k</span>
             
             
             
