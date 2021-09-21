@@ -40,9 +40,9 @@
 
     <script src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="WWJ's Grocery" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="WWJ's Grocery" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -434,7 +434,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.8k
+                    5.2k
                 </div>
                 
 
@@ -756,7 +756,7 @@ Type "help", "copyright", "credits" or "license()" for more information.
 
 <p><strong>数据类型思维导图</strong></p>
 <ul>
-<li><img src="https://s3.bmp.ovh/imgs/2021/09/883d7609737860ec.png"></li>
+<li><img src="https://s3.bmp.ovh/imgs/2021/09/883d7609737860ec.png" style="zoom:50%;"></li>
 </ul>
 <h2 id="变量与运算符"><a href="#变量与运算符" class="headerlink" title="变量与运算符"></a>变量与运算符</h2><p><strong>变量命名</strong></p>
 <ul>
@@ -1098,7 +1098,7 @@ print(infos)<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <li>模块可以相对导入，但是不能超过顶级包</li>
 <li>入口文件可以直接导入</li>
 </ul>
-<h2 id="python函数"><a href="#python函数" class="headerlink" title="python函数"></a>python函数</h2><p><strong>特性</strong></p>
+<h2 id="Python函数"><a href="#Python函数" class="headerlink" title="Python函数"></a>Python函数</h2><p><strong>特性</strong></p>
 <ul>
 <li>功能性</li>
 <li>隐藏细节</li>
@@ -1358,7 +1358,99 @@ student.__score=-1<span aria-hidden="true" class="line-numbers-rows"><span></spa
 <li>为了类中的数据安全，在修改类中的数据时，不应该直接访问而是通过方法传入</li>
 </ul>
 <p><strong>继承</strong></p>
+<ul>
+<li>子类调用父类变量</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from c3 import Human
+class Student(Human):
+    def __init__(self,school,name,age):
+        self.school=school
+        Human.__init__(self,name,age)#这种方法不可取
+    def do_homework(self):
+        print("do english homework")
+        # super(Student, self).__init__(*args))
+student1=Student("人民路小学","石敢当",18)        
+print(student1.name)
+print(student1.age)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<ul>
+<li>用super正确继承父类方法和变量</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from c3 import Human
+class Student(Human):
+    def __init__(self,school,name,age):
+        self.school=school
+        # Human.__init__(self,name,age)
+        super(Student, self).__init__(name,age)  #正确调用
+    def do_homework(self):
+        print("do english homework")
+
+student1=Student("人民路小学","石敢当",18)        
+print(student1.name)
+print(student1.age)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>子类继承父类思维导图</strong></p>
+<img src="https://s3.bmp.ovh/imgs/2021/09/6030e7eb14d5fd91.png" style="zoom:50%;">
+
+<p><strong>python类思维导图</strong></p>
+<img src="https://s3.bmp.ovh/imgs/2021/09/7dfe4268272b4da2.png" style="zoom: 50%;">
+
+<h2 id="正则表达式与json"><a href="#正则表达式与json" class="headerlink" title="正则表达式与json"></a>正则表达式与json</h2><p><strong>正则表达式</strong></p>
+<ul>
+<li>正则表达式是一个特殊的字符序列</li>
+<li>一串字符是否与我们设定的这样的字符序列相匹配</li>
+<li>快速检索文本，实现一些替换文本的操作</li>
+</ul>
+<p><strong>Python一些内置的文本处理函数</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a = "C|C++|Java|Python"
+print(a.index("Python")&gt;-1)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">print("Python" in a)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>初识正则</strong></p>
+<ul>
+<li>re包有支持正则的依赖</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import re
+a = "C|C++|Java|Python"
+# print(a.index("Python")&gt;-1)
+# print("Python" in a)
+r=re.findall("Python",a)
+print(r)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>匹配数字</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import re
+a = "C0C++1Java2Python"
+# print(a.index("Python")&gt;-1)
+# print("Python" in a)
+r=re.findall("\d",a)
+print(r)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>字符集</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import re
+s ='abc,acc,adc,aec,afc'
+r=re.findall('a[a-f]c',s)
+#r=re.findall('^a[a-f]c',s)
+print(r)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>类似于e中的文本_取出中间文本</li>
+<li>在前面加^可以达到取反的效果</li>
+<li>中括号内的为概括字符集</li>
+</ul>
+<p><strong>概括字符集</strong></p>
+<ul>
+<li>/d 匹配数字 /D匹配非数字</li>
+<li>/w单词字符 /W非单词字符</li>
+<li>/s空白字符 /S非空白字符</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import re
+a = "python66java779php"
+r = re.findall('\w',a)
+print(r)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>数量词</strong></p>
+<h2 id="Python的高级语法与用法"><a href="#Python的高级语法与用法" class="headerlink" title="Python的高级语法与用法"></a>Python的高级语法与用法</h2>
                 
             </div>
             <hr/>
@@ -1861,48 +1953,46 @@ student.__score=-1<span aria-hidden="true" class="line-numbers-rows"><span></spa
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/09/12/python-daily/">
+                <a href="/2021/09/21/javascript/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/featureimages/6.jpg" class="responsive-img" alt="python_daily">
+                        <img src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/featureimages/21.jpg" class="responsive-img" alt="JavaScript">
                         
-                        <span class="card-title">python_daily</span>
+                        <span class="card-title">JavaScript</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            python爬虫每天的学习记录
+                            
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-12
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-21
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/Javascript/" class="post-category">
+                                    Javascript
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/code/">
+                        <span class="chip bg-color">code</span>
                     </a>
                     
                 </div>
@@ -2103,7 +2193,7 @@ student.__score=-1<span aria-hidden="true" class="line-numbers-rows"><span></spa
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">50k</span>
+                        class="white-color">50.4k</span>
             
             
             
