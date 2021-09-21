@@ -427,14 +427,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-20
+                    2021-09-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.2k
+                    4.8k
                 </div>
                 
 
@@ -461,7 +461,8 @@
             <div id="articleContent">
                 <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="声明-学习资料源于网络"><a href="#声明-学习资料源于网络" class="headerlink" title="声明(学习资料源于网络)"></a>声明(学习资料源于网络)</h2><h2 id="学习进度"><a href="#学习进度" class="headerlink" title="学习进度"></a>学习进度</h2><ul>
 <li><strong>2021.9.19 第五章变量与运算符</strong></li>
-<li><strong>2021.9.20</strong></li>
+<li><strong>2021.9.20第九章面向对象</strong></li>
+<li><strong>2021.9.21</strong></li>
 </ul>
 <h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><p><strong>数字整型，浮点</strong></p>
 <ul>
@@ -1232,7 +1233,132 @@ print(a)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
 <ul>
 <li>使函数内部的局部变量转换成全局变量供外部调用</li>
 </ul>
-<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2>
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><ul>
+<li>知道什么是对象</li>
+<li>知道什么是类</li>
+</ul>
+<p><strong>类的命名</strong></p>
+<ul>
+<li>类的命名首字母大写</li>
+<li>类的命名单词连接都大写</li>
+</ul>
+<p><strong>类=面向对象</strong></p>
+<ul>
+<li>类的最基本作用:封装</li>
+<li>用特征(数据成员),和行为描述类</li>
+</ul>
+<p><strong>类是一个模板，通过类可以实例化很多个对象</strong></p>
+<p><strong>构造函数</strong></p>
+<ul>
+<li>作用:初始化对象的属性</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">class Student():
+    name = "wwj"
+    age = 1
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+        print(self.name)
+    def demo(self):
+        print("name"+self.name)
+        print("age"+str(self.age))
+student = Student("石敢当",18)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>类变量和实例变量</strong></p>
+<ul>
+<li>在类下直接定义的是类变量</li>
+<li>在方法中定义的为实例变量</li>
+</ul>
+<p><strong>方法下的变量要实例化</strong></p>
+<ul>
+<li>方法下的变量要用self.的前缀实例化</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">self.name=name<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>调用类变量</strong></p>
+<ul>
+<li>可以通过<strong>类.变量名</strong>访问</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">print(Student.name)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>实例方法中访问类变量</strong></p>
+<ul>
+<li>方法一 类.变量名</li>
+<li>方法二 通过self</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">print(self.__class__.name)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>类方法</strong></p>
+<ul>
+<li>通过类方法可以修改类变量的数值</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">class Student():
+    name = "wwj" #这是类变量
+    age = 1
+    sum=0
+    def __init__(self,name,age):
+        # self.name=name
+        self.name=name  #这是实例变量
+        print(self.__class__.name)
+
+    def demo(self):
+        print("name"+self.name)
+        print("age"+str(self.age))
+    @classmethod
+    def plus_sum(cls):
+        cls.sum+=1
+        print(cls.sum)
+        
+student = Student("石敢当",18)
+Student.plus_sum()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>类方法的官方推荐关键字<strong>cls</strong></li>
+<li>在定义实例函数前添加<strong>装饰器@classmethod</strong>后为<strong>类方法</strong></li>
+</ul>
+<p><strong>静态方法不常用</strong></p>
+<ul>
+<li>当方法与对象和类关系不大时可以使用静态方法</li>
+<li>没有类似self,cls的关键字</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">    @staticmethod
+    def add():
+        print("This is a static method")
+        
+student = Student("石敢当",18)
+Student.add()
+student.add()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>静态方法和类方法调用类变量的区别</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">@classmethod
+def plus_sum(cls):
+    cls.sum+=1
+    print(cls.sum)#这是类方法调用类变量
+@staticmethod
+def add():
+    print("This is a static method")
+    print(Student.name)#这是静态方法调用类变量<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>成员可见性</strong></p>
+<ul>
+<li>当类下的方法或变量以双下划线开头命名，python会认为该方法为私有方法，禁止外部调用</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">    def get_socre(self,score):
+        self.__score = score
+        print(self.name+"同学本次的考试成绩"+str(self.__score))
+student = Student("石敢当",18)
+student.get_socre(51)
+student.__score=-1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">{'name': '石敢当', '_Student__score': 51, '__score': -1}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>python的成员私有机制是通过改名的方式实现</li>
+<li>还是可以访问</li>
+<li>为了类中的数据安全，在修改类中的数据时，不应该直接访问而是通过方法传入</li>
+</ul>
+<p><strong>继承</strong></p>
+
                 
             </div>
             <hr/>
@@ -1977,7 +2103,7 @@ print(a)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">49.3k</span>
+                        class="white-color">50k</span>
             
             
             
