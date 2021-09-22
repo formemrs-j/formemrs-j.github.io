@@ -427,14 +427,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-22
+                    2021-09-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    694
+                    711
                 </div>
                 
 
@@ -483,9 +483,20 @@
 import time
 import json
 DATA=[
-{"1111111111":"111111"}]填入你的账号密码
+{"2037020201":"190817"},{"2037020202":"261977"},{"2037020203":"011523"},
+{"2037020204":"081582"},{"2037020205":"301613"},{"2037020206":"yh002516"},
+{"2037020207":"154010"},{"2037020208":"200074"},{"2037020209":"085582"},
+{"2037020211":"203096"},{"2037020212":"173415"},{"2037020213":"18001X"},
+{"2037020214":"260016"},{"2037020215":"305411"},{"2037020216":"153011"},
+{"2037020217":"203033"},{"2037020218":"180918"},{"2037020219":"180019"},
+{"2037020220":"020314"},{"2037020221":"063037"},{"2037020222":"314311"},
+{"2037020223":"271811"},{"2037020224":"27103X"},{"2037020225":"025210"},
+{"2037020226":"253141"},{"2037020227":"072314"},{"2037020228":"052110"},
+{"2037020229":"164961"},{"2037020230":"177635"},{"2037020232":"060019"},
+{"2037020133":"123110"},{"2036010301":"172628"},{"1811080133":"123456"},
+{"1811080124":"123456"},{"1811080105":"123456"}]
 log=[]
-PUSH_TOKEN='你的token'#填入你的token
+PUSH_TOKEN='92aeca72fb934d08b2fffdeda07eb82d'
 LOGIN_URL = 'https://nco.zjgsu.edu.cn/login'
 SUBMIT_URL='https://nco.zjgsu.edu.cn/'
 LOGIN_HEADER={
@@ -498,8 +509,8 @@ LOGIN_BODY={
 }
 SUBMIT_BODY={
         'uuid':'a59e0ac8-da06-4fb1-83d8-000976c317a9',
-        'locationInfo': '%E6%B5%99%E6%B1%9F%E7%9C%81%E6%9D%AD%E5%B7%9E%E5%B8%82',
-        'currentResd': '%E6%B5%99%E6%B1%9F%E5%B7%A5%E5%95%86%E5%A4%A7%E5%AD%A6%E9%92%B1%E6%B1%9F%E6%B9%BE%E7%94%9F%E6%B4%BB%E5%9B%AD%E5%8C%BA',
+        'locationInfo': '浙江省',
+        'currentResd': '浙江省杭州市江干区浙江工商大学钱江湾生活园区',
         'fromHbToZjDate': '',
         'fromHbToZj': 'C',
         'fromWtToHzDate': '',
@@ -525,7 +536,7 @@ def nco():
             response=requests.post(url=LOGIN_URL,headers=LOGIN_HEADER,data=LOGIN_BODY)
             cookies = response.cookies
             submit_response=requests.post(SUBMIT_URL,headers=LOGIN_HEADER,cookies=cookies,data=SUBMIT_BODY)
-            if '当天只能申报一次' in submit_response.text:
+            if '报送成功' in submit_response.text:
                 print("账号："+u+"当天已填报")
                 log.append("账号："+u+"********填报成功！********")
             else:
@@ -552,7 +563,7 @@ def main_handler(event, context):
     push()
 if __name__=='__main__':
     nco()   
-    push()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    push()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li>关于云函数的配置</li>
