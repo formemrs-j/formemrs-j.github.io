@@ -40,9 +40,9 @@
 
     <script src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="WWJ's Grocery" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="WWJ's Grocery" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -395,8 +395,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/e/">
-                                <span class="chip bg-color">e</span>
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
                             </a>
                         
                     </div>
@@ -407,8 +407,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/code/" class="post-category">
-                                code
+                            <a href="/categories/python/" class="post-category">
+                                python
                             </a>
                         
                     </div>
@@ -427,14 +427,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-11
+                    2021-09-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    360
+                    694
                 </div>
                 
 
@@ -477,11 +477,88 @@
 <li>默认使用pushplus推送</li>
 </ul>
 <h2 id="💦使用方法（云函数）"><a href="#💦使用方法（云函数）" class="headerlink" title="💦使用方法（云函数）"></a>💦使用方法（云函数）</h2><ul>
-<li>等待开发</li>
+<li><strong>beta测试版，时间紧急写的仓促</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import requests
+import time
+import json
+DATA=[
+{"1111111111":"111111"}]填入你的账号密码
+log=[]
+PUSH_TOKEN='你的token'#填入你的token
+LOGIN_URL = 'https://nco.zjgsu.edu.cn/login'
+SUBMIT_URL='https://nco.zjgsu.edu.cn/'
+LOGIN_HEADER={
+    "User-Agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/93.0.4577.82",
+    'Content-Type': 'application/x-www-form-urlencoded'
+}
+LOGIN_BODY={
+    "name":"",
+    "psswd":""
+}
+SUBMIT_BODY={
+        'uuid':'a59e0ac8-da06-4fb1-83d8-000976c317a9',
+        'locationInfo': '%E6%B5%99%E6%B1%9F%E7%9C%81%E6%9D%AD%E5%B7%9E%E5%B8%82',
+        'currentResd': '%E6%B5%99%E6%B1%9F%E5%B7%A5%E5%95%86%E5%A4%A7%E5%AD%A6%E9%92%B1%E6%B1%9F%E6%B9%BE%E7%94%9F%E6%B4%BB%E5%9B%AD%E5%8C%BA',
+        'fromHbToZjDate': '',
+        'fromHbToZj': 'C',
+        'fromWtToHzDate': '',
+        'fromWtToHz': 'B',
+        'meetDate': '',
+        'meetCase': 'C',
+        'travelDate': '',
+        'travelCase': 'D',
+        'medObsvReason': '',
+        'medObsv': 'B',
+        'belowCaseDesc': '',
+        'belowCase': 'D',
+        'temperature': '',
+        'notApplyReason': '',
+        'hzQRCode': 'A',
+        'specialDesc': ''
+}
+def nco():
+    for x in DATA:
+        for u,p in x.items():
+            LOGIN_BODY['name']=u
+            LOGIN_BODY['psswd']=p
+            response=requests.post(url=LOGIN_URL,headers=LOGIN_HEADER,data=LOGIN_BODY)
+            cookies = response.cookies
+            submit_response=requests.post(SUBMIT_URL,headers=LOGIN_HEADER,cookies=cookies,data=SUBMIT_BODY)
+            if '当天只能申报一次' in submit_response.text:
+                print("账号："+u+"当天已填报")
+                log.append("账号："+u+"********填报成功！********")
+            else:
+                log.append("账号："+u+"********填报失败！********")
+                print("账号："+u+"当天未填报")
+        time.sleep(0.002)  
+def push():
+    token = PUSH_TOKEN
+    title= '浙工商打卡小助手提示您' 
+    content =log
+    url = 'http://pushplus.hxtrip.com/send'
+    data = {
+    "token":token,
+    "title":title,
+    "content":content,
+    "template":"html"
+    }
+    body=json.dumps(data).encode(encoding='utf-8')
+    headers = {'Content-Type':'application/json'}
+    requests.post(url,data=body,headers=headers)
+    print('发送成功')
+def main_handler(event, context):
+    nco()
+    push()
+if __name__=='__main__':
+    nco()   
+    push()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>关于云函数的配置</li>
 </ul>
 <h2 id="runner-其他版本"><a href="#runner-其他版本" class="headerlink" title=":runner:其他版本"></a><span class="github-emoji"><span>🏃</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f3c3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>其他版本</h2><ul>
 <li>后续会开发小程序版本和网页版本</li>
-<li>也会开发适合腾讯云函数的python版本，敬请期待……</li>
 </ul>
 
                 
@@ -547,8 +624,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/e/">
-                                    <span class="chip bg-color">e</span>
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
                                 </a>
                             
                         </div>
@@ -1226,7 +1303,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">50.4k</span>
+                        class="white-color">51.4k</span>
             
             
             

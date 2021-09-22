@@ -40,9 +40,9 @@
 
     <script src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="WWJ's Grocery" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="WWJ's Grocery" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -427,14 +427,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-21
+                    2021-09-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.2k
+                    5.9k
                 </div>
                 
 
@@ -459,10 +459,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="声明-学习资料源于网络"><a href="#声明-学习资料源于网络" class="headerlink" title="声明(学习资料源于网络)"></a>声明(学习资料源于网络)</h2><h2 id="学习进度"><a href="#学习进度" class="headerlink" title="学习进度"></a>学习进度</h2><ul>
+                <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="记录自己从零学习Python爬虫"><a href="#记录自己从零学习Python爬虫" class="headerlink" title="记录自己从零学习Python爬虫"></a>记录自己从零学习Python爬虫</h2><h2 id="学习进度"><a href="#学习进度" class="headerlink" title="学习进度"></a>学习进度</h2><ul>
 <li><strong>2021.9.19 第五章变量与运算符</strong></li>
 <li><strong>2021.9.20第九章面向对象</strong></li>
-<li><strong>2021.9.21</strong></li>
+<li><strong>2021.9.21第十章正则表达式与json</strong></li>
+<li><strong>2021.9.22第十三章原生爬虫</strong></li>
 </ul>
 <h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><p><strong>数字整型，浮点</strong></p>
 <ul>
@@ -1443,6 +1444,7 @@ print(r)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
 <li>/d 匹配数字 /D匹配非数字</li>
 <li>/w单词字符 /W非单词字符</li>
 <li>/s空白字符 /S非空白字符</li>
+<li>.号匹配除\n以外所有的字符</li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">import re
 a = "python66java779php"
@@ -1450,7 +1452,128 @@ r = re.findall('\w',a)
 print(r)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>数量词</strong></p>
-<h2 id="Python的高级语法与用法"><a href="#Python的高级语法与用法" class="headerlink" title="Python的高级语法与用法"></a>Python的高级语法与用法</h2>
+<ul>
+<li>在正则表达式后添加{}数量区间，以逗号隔开可以匹配多个字符</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import re
+a = 'python 111 java 222php'
+r = re.findall('[a-z]{3,6}',a)
+print(r)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>贪婪与非贪婪</strong></p>
+<ul>
+<li>在正则表达式数量词后添加?执行非贪婪搜索</li>
+<li>Python默认会进行贪婪搜索</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import re
+a = 'python 111 java 222php'
+r = re.findall('[a-z]{3,6}?',a)
+print(r)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>匹配0次,1次或者无限多次</strong></p>
+<ul>
+<li>*号匹配0次或无限多次</li>
+<li>+号匹配1次或无限多次</li>
+<li>?号匹配0次或1次</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import re
+a = 'pytho11python33pythonn'
+r =re.findall('python*',a)
+print(r)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>边界匹配符</strong></p>
+<ul>
+<li>^开始$结尾表示匹配一整个文本</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import re
+qq = '10000'
+r = re.findall('^\d{4,8}$',qq)
+print(r)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>组</strong></p>
+<ul>
+<li>用()包含起来就是一组</li>
+<li>[]包含起来里的每个字母是或的关系</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import re
+a = 'wwjwwjwwj'
+r = re.findall('(wwj){3}',a)
+print(r)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>匹配模式参数</strong></p>
+<ul>
+<li>findall()函数第三个参数是匹配模式</li>
+<li>re.I表示忽略大小写匹配,re.S表示匹配所有字符包括换行符</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import re
+a = 'wwjC#\nwwjwwj'
+r = re.findall('c#.{1}',a,re.I | re.S)
+print(r)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>re.sub正则替换</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import re 
+a = 'phpgojavac#'
+r = re.sub('c#','python',a,0)
+print(r)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>也可以使用.replace方法实现</li>
+</ul>
+<p><strong>把函数作为参数传入</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import re
+s = 'a1b4j1k4l9s8d9g0s0w1'
+def convert(value):
+    matched = value.group()
+    if int(matched) &gt;=6:
+        return '9'
+    else:
+        return '0'
+r = re.sub('\d',convert,s)
+print(r)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>search和match函数</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import re
+s = 'a1b4j1k4l9s8d9g0s0w1'
+r = re.search('\d',s)
+r1 = re.match('\d',s)
+print(r)
+print(r1)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>search将搜寻整个文本，如果找到匹配立刻停止并且返回</li>
+<li>match会从开头开始匹配，如果失败立刻终止</li>
+</ul>
+<p><strong>group分组</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import re
+s = 'life is short,i love python'
+#目的取出life 和 python中间的文本
+r =re.search('life(.*) python',s)
+print(r.group(1))#要匹配结果从1开始
+#类似于易语言中的文本_取出中间文本	<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>学习正则的建议</strong></p>
+<ul>
+<li>常用正则可以使用他人写好的,但要自己研究一下</li>
+<li>常用常记，熟能生巧</li>
+</ul>
+<p><strong>理解json</strong></p>
+<ul>
+<li>什么是json: Javascript object notion</li>
+<li>是一种轻量级的数据交换格式</li>
+<li>字符串是json的表现形式</li>
+<li>复合json规范的加json字符串</li>
+</ul>
+<p><strong>json的优势</strong></p>
+<ul>
+<li>易于阅读</li>
+<li>易于解析</li>
+<li>网络传输效率高</li>
+<li>反序列化-将json解析成语言所对应的格式</li>
+<li>序列化-将语言所对应的格式组装成json</li>
+</ul>
+<h2 id="Python的高级语法与用法"><a href="#Python的高级语法与用法" class="headerlink" title="Python的高级语法与用法"></a>Python的高级语法与用法</h2><h2 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h2><h2 id="实战-原生爬虫"><a href="#实战-原生爬虫" class="headerlink" title="实战:原生爬虫"></a>实战:原生爬虫</h2><h2 id="Pythonic与Python杂记"><a href="#Pythonic与Python杂记" class="headerlink" title="Pythonic与Python杂记"></a>Pythonic与Python杂记</h2>
                 
             </div>
             <hr/>
@@ -2029,8 +2152,8 @@ print(r)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/code/" class="post-category">
-                                    code
+                            <a href="/categories/python/" class="post-category">
+                                    python
                                 </a>
                             
                             
@@ -2040,8 +2163,8 @@ print(r)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/e/">
-                        <span class="chip bg-color">e</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>
@@ -2193,7 +2316,7 @@ print(r)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">50.4k</span>
+                        class="white-color">51.4k</span>
             
             
             
