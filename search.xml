@@ -33,7 +33,7 @@
       <link href="/2021/09/22/chong-gou-c-yu-yan/"/>
       <url>/2021/09/22/chong-gou-c-yu-yan/</url>
       
-        <content type="html"><![CDATA[<h1 id="重构C语言体系"><a href="#重构C语言体系" class="headerlink" title="重构C语言体系"></a>重构C语言体系</h1>]]></content>
+        <content type="html"><![CDATA[<h1 id="重构C语言体系"><a href="#重构C语言体系" class="headerlink" title="重构C语言体系"></a>重构C语言体系</h1><h2 id="C语言必备基础"><a href="#C语言必备基础" class="headerlink" title="C语言必备基础"></a>C语言必备基础</h2><ul><li>环境搭建-略</li><li>使用开发工具，CLion</li><li>配置CLion,代码风格选择谷歌，编译器创建三个vs-64,vs-32,MINGW,debug两个vs-64,MINGW</li></ul><p><strong>编写第一行代码</strong></p><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;stdio.h&gt;/** * This program calculate summary from 0 to 9. * @param argc parameter count * @param argv parameters * @return 0 */int main(int argc,char **argv) {  int sum = 0;  int i = 0;  while (i &lt;10){    sum = sum +i;    i++;  }  printf("%d\n",sum);  return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>​    </p>]]></content>
       
       
       <categories>
