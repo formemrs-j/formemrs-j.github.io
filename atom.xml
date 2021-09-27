@@ -6,7 +6,7 @@
   <link href="https://formemrs-j.github.io/atom.xml" rel="self"/>
   
   <link href="https://formemrs-j.github.io/"/>
-  <updated>2021-09-23T12:42:23.727Z</updated>
+  <updated>2021-09-27T14:11:07.476Z</updated>
   <id>https://formemrs-j.github.io/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>超星作业云函数</title>
+    <link href="https://formemrs-j.github.io/2021/09/27/chao-xing-zuo-ye-yun-han-shu/"/>
+    <id>https://formemrs-j.github.io/2021/09/27/chao-xing-zuo-ye-yun-han-shu/</id>
+    <published>2021-09-27T14:08:51.000Z</published>
+    <updated>2021-09-27T14:11:07.476Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><ul><li>每小时检测是否有未完成的作业，有通过微信推送提醒</li></ul><h2 id="云函数代码"><a href="#云函数代码" class="headerlink" title="云函数代码"></a>云函数代码</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">import requestsimport reimport jsonREQUEST_URL='你的url'REQUEST_HEADER={    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36',    'cookie':"你的cookie"}PUSH_TOKEN="你的token"homework_pattern="&lt;ul&gt;(.*?)&lt;/ul&gt;"title_pattern=r'&lt;p class="overHi.*?&gt;(.*?)&lt;/p&gt;'status_pattern=r'&lt;p class="status"&gt;(.*?)&lt;/p&gt;'deadline_pattern=r'&lt;img class.*?&gt;(.*?)&lt;/div&gt;'response=requests.get(url=REQUEST_URL,headers=REQUEST_HEADER)response.encoding='utf-8'#res=re.findall(homework_pattern,response.text,re.S | re.M)log=[]def inquiries_homework():    single_homework=re.findall(title_pattern,response.text,re.S | re.M)    single_status=re.findall(status_pattern,response.text, re.M |re.S)    single_deadline=re.findall(deadline_pattern,response.text,re.S | re.M)    for i in single_deadline:        if i != '':            num=single_deadline.index(i)            homework=single_homework[num]            status=single_status[num]            deadline=i.strip()            log.append("作业名称：**"+homework.strip()+"**剩余时间：**"+deadline+"**当前状态："+status.strip())            print(log)def push():    token = PUSH_TOKEN    title= '主人，您还有份作业未完成，请尽快完成！'     content =log    url = 'http://pushplus.hxtrip.com/send'    data = {    "token":token,    "title":title,    "content":content,    "template":"html"    }    body=json.dumps(data).encode(encoding='utf-8')    headers = {'Content-Type':'application/json'}    requests.post(url,data=body,headers=headers)    print('发送成功')def main_handler(event, context):    inquiries_homework()if __name__=='__main__':    inquiries_homework()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;项目介绍&quot;&gt;&lt;a href=&quot;#项目介绍&quot; class=&quot;headerlink&quot; title=&quot;项目介绍&quot;&gt;&lt;/a&gt;项目介绍&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;每小时检测是否有未完成的作业，有通过微信推送提醒&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;云函数代码&quot;&gt;&lt;a hr</summary>
+      
+    
+    
+    
+    <category term="python" scheme="https://formemrs-j.github.io/categories/python/"/>
+    
+    
+    <category term="coding" scheme="https://formemrs-j.github.io/tags/coding/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>教务网公告云函数、</title>
+    <link href="https://formemrs-j.github.io/2021/09/27/jiao-wu-wang-gong-gao-yun-han-shu/"/>
+    <id>https://formemrs-j.github.io/2021/09/27/jiao-wu-wang-gong-gao-yun-han-shu/</id>
+    <published>2021-09-27T14:03:28.000Z</published>
+    <updated>2021-09-27T14:07:35.337Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><ul><li>每小时监控是否有新的新闻发布，如果有将通过pushplus推送</li></ul><h2 id="云函数代码"><a href="#云函数代码" class="headerlink" title="云函数代码"></a>云函数代码</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">import requestsimport reimport datetimeimport jsonREQUEST_URL = 'https://jww.zjgsu.edu.cn/1319/list.htm'REQUEST_HEADER={    'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36 Edg/94.0.992.31',    'accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',    'cache-control':'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'}log=[]PUSH_TOKEN="你的token"#你的tokennews_pattern = r'li class="column-news-item item.*?&gt;(.*?)&lt;/li&gt;' #匹配所有新闻new_pattern = r'&lt;a .*?&gt;(.*?)&lt;/a&gt;' #匹配文本date_pattern = r'&lt;span class="column-news-date news-date.*?&gt;(.*?)&lt;/span&gt;'#匹配日期#link_pattern=r'href="(.*?)"'#匹配网址def get_news():    response = requests.get(url=REQUEST_URL,headers=REQUEST_HEADER)    response.encoding='utf-8'    total_news = re.findall(news_pattern, response.text, re.S | re.M)    now_time = datetime.datetime.now().strftime('%Y-%m-%d')    for content in total_news:        news = re.findall(new_pattern, content, re.S | re.M)        date = re.findall(date_pattern, content, re.S | re.M)#       link=re.findall(link_pattern,content,re.I | re.S | re.M)        if date[0] == now_time:           log.append(news[0]+"|"+date[0])           print("任务完成")           push()def push():    token = PUSH_TOKEN    title= '主人，发现一条新的教务网新闻'     content =log    url = 'http://pushplus.hxtrip.com/send'    data = {    "token":token,    "title":title,    "content":content,    "template":"html"    }    body=json.dumps(data).encode(encoding='utf-8')    headers = {'Content-Type':'application/json'}    requests.post(url,data=body,headers=headers)    print('发送成功')def main_handler(event, context):    get_news()if __name__=='__main__':    get_news()#total_news=re.findall('&lt;ul&gt;(.*?)&lt;div id="wp_paging_w9"&gt;',response.text,re.I | re.S | re.M)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;项目介绍&quot;&gt;&lt;a href=&quot;#项目介绍&quot; class=&quot;headerlink&quot; title=&quot;项目介绍&quot;&gt;&lt;/a&gt;项目介绍&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;每小时监控是否有新的新闻发布，如果有将通过pushplus推送&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;云函数代码</summary>
+      
+    
+    
+    
+    <category term="python" scheme="https://formemrs-j.github.io/categories/python/"/>
+    
+    
+    <category term="coding" scheme="https://formemrs-j.github.io/tags/coding/"/>
+    
+  </entry>
   
   <entry>
     <title>Java全栈学习</title>
