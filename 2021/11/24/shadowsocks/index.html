@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="重构C语言, HTML,CSS,Python,Java,JavaScript,JQuery,React,Vue.js等">
+    <meta name="keywords" content="shadowsocks, HTML,CSS,Python,Java,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="Demonstrate the temperature of technology">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>重构C语言 | WWJ&#39;s Grocery</title>
+    <title>shadowsocks | WWJ&#39;s Grocery</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/awesome/css/all.css">
@@ -274,12 +274,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">重构C语言</h1>
+                    <h1 class="description center-align post-title">shadowsocks</h1>
                 </div>
             </div>
         </div>
@@ -395,8 +395,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/coding/">
-                                <span class="chip bg-color">coding</span>
+                            <a href="/tags/Ubuntu/">
+                                <span class="chip bg-color">Ubuntu</span>
                             </a>
                         
                     </div>
@@ -407,8 +407,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/c-language/" class="post-category">
-                                c language
+                            <a href="/categories/Server/" class="post-category">
+                                Server
                             </a>
                         
                     </div>
@@ -420,21 +420,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-22
+                    2021-11-24
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-26
+                    2021-11-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    108
+                    103
                 </div>
                 
 
@@ -459,31 +459,38 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="重构C语言体系"><a href="#重构C语言体系" class="headerlink" title="重构C语言体系"></a>重构C语言体系</h1><h2 id="C语言必备基础"><a href="#C语言必备基础" class="headerlink" title="C语言必备基础"></a>C语言必备基础</h2><ul>
-<li>环境搭建-略</li>
-<li>使用开发工具，CLion</li>
-<li>配置CLion,代码风格选择谷歌，编译器创建三个vs-64,vs-32,MINGW,debug两个vs-64,MINGW</li>
-</ul>
-<p><strong>编写第一行代码</strong></p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;stdio.h&gt;
-/**
- * This program calculate summary from 0 to 9.
- * @param argc parameter count
- * @param argv parameters
- * @return 0
- */
-int main(int argc,char **argv) {
-  int sum = 0;
-  int i = 0;
-  while (i &lt;10){
-    sum = sum +i;
-    i++;
-  }
-  printf("%d\n",sum);
-  return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="Fisrt"><a href="#Fisrt" class="headerlink" title="Fisrt"></a>Fisrt</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">apt -y install snapd
+snap install core
+snap install shadowsocks-libev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>​    </p>
+<h2 id="Second"><a href="#Second" class="headerlink" title="Second"></a>Second</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">vim /etc/ssh/sshd_config
+and find the word "#PermitRootLogin Prohibit-password"
+add PermitRootLogin yes below it
+restar ssh server
+service sshd restart
+#or
+/etc/init.d/ssh restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Third"><a href="#Third" class="headerlink" title="Third"></a>Third</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">add config.json
+{
+ "server":"0.0.0.0",
+ "nameserver":"8.8.8.8",
+ "server_port":443,
+ "password":"lj010627",
+ "method":"chacha20-ietf-poly1305",
+ "timeout":600,
+ "no_delay":true,
+ "mode":"tcp_and_udp"
+}
+star server
+/snap/bin/shadowsocks-libev.ss-server -c /snap/shadowsocks-libev/config.json -f /snap/bin/ss-server-pid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Fourth"><a href="#Fourth" class="headerlink" title="Fourth"></a>Fourth</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">confirm server stared or not
+netstat -l<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="Fifth"><a href="#Fifth" class="headerlink" title="Fifth"></a>Fifth</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">check the speed
+wget -qO- git.io/superbench.sh | bash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -510,7 +517,7 @@ int main(int argc,char **argv) {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://formemrs-j.github.io/2021/09/22/chong-gou-c-yu-yan/">https://formemrs-j.github.io/2021/09/22/chong-gou-c-yu-yan/</a>
+                    <a href="https://formemrs-j.github.io/2021/11/24/shadowsocks/">https://formemrs-j.github.io/2021/11/24/shadowsocks/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -548,8 +555,8 @@ int main(int argc,char **argv) {
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/coding/">
-                                    <span class="chip bg-color">coding</span>
+                                <a href="/tags/Ubuntu/">
+                                    <span class="chip bg-color">Ubuntu</span>
                                 </a>
                             
                         </div>
@@ -987,46 +994,48 @@ int main(int argc,char **argv) {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/09/27/jiao-wu-wang-gong-gao-yun-han-shu/">
+                <a href="/2021/11/24/shadowsocks/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="教务网公告云函数">
+                        <img src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/featureimages/17.jpg" class="responsive-img" alt="shadowsocks">
                         
-                        <span class="card-title">教务网公告云函数</span>
+                        <span class="card-title">shadowsocks</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            教务网公告监控
+                            How to build shadowsocks in ubuntu
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/Server/" class="post-category">
+                                    Server
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/coding/">
-                        <span class="chip bg-color">coding</span>
+                    <a href="/tags/Ubuntu/">
+                        <span class="chip bg-color">Ubuntu</span>
                     </a>
                     
                 </div>
@@ -1040,31 +1049,31 @@ int main(int argc,char **argv) {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/09/12/python-pa-chong/">
+                <a href="/2021/11/04/qian-duan-quan-zhan-xue-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/featureimages/10.jpg" class="responsive-img" alt="Python爬虫日常">
+                        <img src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/featureimages/20.jpg" class="responsive-img" alt="前端全栈学习">
                         
-                        <span class="card-title">Python爬虫日常</span>
+                        <span class="card-title">前端全栈学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            从零学习Python爬虫日常
+                            记录前端学习过程
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/html5/" class="post-category">
+                                    html5
                                 </a>
                             
                             

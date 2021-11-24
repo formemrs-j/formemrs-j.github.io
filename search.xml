@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>shadowsocks</title>
+      <link href="/2021/11/24/shadowsocks/"/>
+      <url>/2021/11/24/shadowsocks/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Fisrt"><a href="#Fisrt" class="headerlink" title="Fisrt"></a>Fisrt</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">apt -y install snapdsnap install coresnap install shadowsocks-libev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h2 id="Second"><a href="#Second" class="headerlink" title="Second"></a>Second</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">vim /etc/ssh/sshd_configand find the word "#PermitRootLogin Prohibit-password"add PermitRootLogin yes below itrestar ssh serverservice sshd restart#or/etc/init.d/ssh restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="Third"><a href="#Third" class="headerlink" title="Third"></a>Third</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">add config.json{ "server":"0.0.0.0", "nameserver":"8.8.8.8", "server_port":443, "password":"lj010627", "method":"chacha20-ietf-poly1305", "timeout":600, "no_delay":true, "mode":"tcp_and_udp"}star server/snap/bin/shadowsocks-libev.ss-server -c /snap/shadowsocks-libev/config.json -f /snap/bin/ss-server-pid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="Fourth"><a href="#Fourth" class="headerlink" title="Fourth"></a>Fourth</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">confirm server stared or notnetstat -l<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h2 id="Fifth"><a href="#Fifth" class="headerlink" title="Fifth"></a>Fifth</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">check the speedwget -qO- git.io/superbench.sh | bash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Server </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ubuntu </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>前端全栈学习</title>
       <link href="/2021/11/04/qian-duan-quan-zhan-xue-xi/"/>
       <url>/2021/11/04/qian-duan-quan-zhan-xue-xi/</url>
