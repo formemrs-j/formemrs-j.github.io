@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>从0开始用flask写后端api接口</title>
+      <link href="/2021/12/05/cong-0-kai-shi-yong-flask-xie-hou-duan-api-jie-kou/"/>
+      <url>/2021/12/05/cong-0-kai-shi-yong-flask-xie-hou-duan-api-jie-kou/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> flask </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>微软云申请</title>
       <link href="/2021/12/05/wei-ruan-yun-shen-qing/"/>
       <url>/2021/12/05/wei-ruan-yun-shen-qing/</url>
@@ -170,7 +195,7 @@
       
         <tags>
             
-            <tag> coding </tag>
+            <tag> 云函数 </tag>
             
         </tags>
       
@@ -195,7 +220,7 @@
       
         <tags>
             
-            <tag> coding </tag>
+            <tag> 云函数 </tag>
             
         </tags>
       
@@ -270,7 +295,7 @@
       
         <tags>
             
-            <tag> coding </tag>
+            <tag> 云函数 </tag>
             
         </tags>
       
