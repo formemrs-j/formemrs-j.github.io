@@ -4,23 +4,98 @@
   
     
     <entry>
-      <title>shadowsocks</title>
-      <link href="/2021/11/24/shadowsocks/"/>
-      <url>/2021/11/24/shadowsocks/</url>
+      <title>青龙面板</title>
+      <link href="/2021/12/05/qing-long-mian-ban/"/>
+      <url>/2021/12/05/qing-long-mian-ban/</url>
       
-        <content type="html"><![CDATA[<h2 id="Fisrt"><a href="#Fisrt" class="headerlink" title="Fisrt"></a>Fisrt</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">apt -y install snapdsnap install coresnap install shadowsocks-libev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h2 id="Second"><a href="#Second" class="headerlink" title="Second"></a>Second</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">vim /etc/ssh/sshd_configand find the word "#PermitRootLogin Prohibit-password"add PermitRootLogin yes below itrestar ssh serverservice sshd restart#or/etc/init.d/ssh restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="Third"><a href="#Third" class="headerlink" title="Third"></a>Third</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">add config.json{ "server":"0.0.0.0", "nameserver":"8.8.8.8", "server_port":443, "password":"lj010627", "method":"chacha20-ietf-poly1305", "timeout":600, "no_delay":true, "mode":"tcp_and_udp"}star server/snap/bin/shadowsocks-libev.ss-server -c /snap/shadowsocks-libev/config.json -f /snap/bin/ss-server-pid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="Fourth"><a href="#Fourth" class="headerlink" title="Fourth"></a>Fourth</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">confirm server stared or notnetstat -l<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h2 id="Fifth"><a href="#Fifth" class="headerlink" title="Fifth"></a>Fifth</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">check the speedwget -qO- git.io/superbench.sh | bash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>]]></content>
+        <content type="html"><![CDATA[<h2 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">apt update -y &amp;&amp; apt install -y curl &amp;&amp; apt install -y socat#更新curl -fsSL https://get.docker.com -o get-docker.shsh get-docker.sh#安装Docker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="启动青龙面板"><a href="#启动青龙面板" class="headerlink" title="启动青龙面板"></a>启动青龙面板</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker run -dit \-v $PWD/ql/config:/ql/config \-v $PWD/ql/log:/ql/log \-v $PWD/ql/db:/ql/db \-p 5700:5700 \--name qinglong  \--hostname qinglong \--restart always \whyour/qinglong:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       
       
       <categories>
           
-          <category> Server </category>
+          <category> vps </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Ubuntu </tag>
+            <tag> 青龙面板 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>nextcloud云盘安装</title>
+      <link href="/2021/12/05/nextcloud-yun-pan-an-zhuang/"/>
+      <url>/2021/12/05/nextcloud-yun-pan-an-zhuang/</url>
+      
+        <content type="html"><![CDATA[<h2 id="什么是snap"><a href="#什么是snap" class="headerlink" title="什么是snap"></a>什么是snap</h2><p><strong><code>Snap</code>的安装包扩展名是<code>.snap</code>，类似于一个容器，完全独立于系统，它包含一个应用程序需要用到的所有文件和库（<code>snap</code>包包含一个私有的<code>root</code>文件系统，里面包含了依赖的软件包）。它们会被安装到单独的目录，各个应用程序之间相互隔离，互不影响。而且安装快捷、创建简单、运行安全，易管理。目前支持的主流发行版有<code>Ubuntu</code>、<code>Debian</code>等。</strong></p><p><strong>文章基于snap安装Nextcloud，docker也是可以的</strong></p><p><strong>以下是snap的用法</strong></p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">#查看snap版本信息snap --version#找出所有snap应用snap find#安装应用snap install 包名#重启应用snap restart 应用名#升级应用snap refresh 应用名#查看安装的应用snap list#卸载应用snap remove 应用名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><strong>由于<code>Ubuntu 16.04</code>系统自带<code>Snap</code>，为了方便，可以直接使用该系统。<code>Snap</code>包自带<code>NextCloud</code>，所以我们可以直接安装</strong></p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">#更新系统apt-get update -y#安装NextCloudsnap install nextcloud<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p><strong>这时候就可以打开<code>http://your_ip</code>进入登录页面了，如果想用域名登录并配置<code>SSL</code>证书的话，先别登录，请直接看后面。</strong></p><h2 id="配置域名"><a href="#配置域名" class="headerlink" title="配置域名"></a>配置域名</h2><p><strong>将域名解析至<code>VPS</code>的<code>IP</code>就可以使用域名登录了，然后再添加<code> Let’s encrypt SSL</code>证书并使用<code>https</code>访问。</strong></p><h2 id="添加SSL证书"><a href="#添加SSL证书" class="headerlink" title="添加SSL证书"></a>添加SSL证书</h2><p><strong>使用命令：</strong></p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nextcloud.enable-https lets-encrypt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><strong>根据要求输入你的邮箱，域名即可！然后就可以打开域名并设置账号和密码登录了。</strong></p><h2 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h2><p><strong>先等域名解析完成后再申请SSL证书</strong></p><p><strong>提示不安全连接的解决方案</strong></p><p><strong>打开nextcloud目录下的config.php文件，我的地址为var/snap/nextcloud/28654/nextcloud/config/</strong></p><p><strong>在trusted_domains数组中添加你的服务器ip和对应域名</strong></p><p><strong>并且在数组后加上</strong></p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">'overwritehost' =&gt; '你的域名','overwriteprotocol' =&gt; 'https'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://www.moerats.com/archives/429/">Snap下安装nextcloud</a></li><li><a href="https://www.cnblogs.com/mouseleo/p/15516828.html">NextCloud 使用https反向代理后PC端异常</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> vps </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> nextcloud </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>x-ui面板</title>
+      <link href="/2021/12/05/x-ui-mian-ban/"/>
+      <url>/2021/12/05/x-ui-mian-ban/</url>
+      
+        <content type="html"><![CDATA[<h1 id="vps搭建x-ui面板（基于ubuntu-18-04）"><a href="#vps搭建x-ui面板（基于ubuntu-18-04）" class="headerlink" title="vps搭建x-ui面板（基于ubuntu 18.04）"></a>vps搭建x-ui面板（基于ubuntu 18.04）</h1><h2 id="First"><a href="#First" class="headerlink" title="First"></a>First</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">apt update -y &amp;&amp; apt install -y curl &amp;&amp; apt install -y socat<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h2 id="Second"><a href="#Second" class="headerlink" title="Second"></a>Second</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">wget--no-check-certificate-q-0bbr2.sh"https://github.com/yeyingorg/bbr2.sh/raw/master/bbr2.sh" &amp;&amp; chmod +x bbr2.sh &amp;&amp; bash bbr2.sh auto<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>开启BBR加速</strong></p><h2 id="Third"><a href="#Third" class="headerlink" title="Third"></a>Third</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">bash &lt;(curl -L https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><strong>一键安装脚本</strong></p><h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul><li><strong>x-ui面板默认占用54321端口，端口必须开放</strong></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> vps </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> v2ray </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vps搭建shadowsocks</title>
+      <link href="/2021/11/24/shadowsocks/"/>
+      <url>/2021/11/24/shadowsocks/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Fisrt"><a href="#Fisrt" class="headerlink" title="Fisrt"></a>Fisrt</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">apt -y install snapd#安装snapsnap install coresnap install shadowsocks-libev#snap安装shadowsocks<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="Second"><a href="#Second" class="headerlink" title="Second"></a>Second</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">vim /etc/ssh/sshd_configand find the word "#PermitRootLogin Prohibit-password"add PermitRootLogin yes below itrestar ssh serverservice sshd restart#or/etc/init.d/ssh restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="Third"><a href="#Third" class="headerlink" title="Third"></a>Third</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">add config.json{ "server":"0.0.0.0", "nameserver":"8.8.8.8", "server_port":443, "password":"lj010627", "method":"chacha20-ietf-poly1305", "timeout":600, "no_delay":true, "mode":"tcp_and_udp"}star server/snap/bin/shadowsocks-libev.ss-server -c /snap/shadowsocks-libev/config.json -f /snap/bin/ss-server-pid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="Fourth"><a href="#Fourth" class="headerlink" title="Fourth"></a>Fourth</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">confirm server stared or notnetstat -l<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h2 id="Fifth"><a href="#Fifth" class="headerlink" title="Fifth"></a>Fifth</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">check the speedwget -qO- git.io/superbench.sh | bash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h2 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h2><p><strong>获取root用户权限登录</strong></p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">## 先获取root权限sudo -i## vim修改配置vim /etc/ssh/sshd_config<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p><strong>找到</strong></p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">#PermitRootLogin Prohibit-password #<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><strong>修改为</strong></p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PermitRootLogin yes<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><strong>重启ssh服务</strong></p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">service sshd restart#或/etc/init.d/ssh restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><strong>更改密码</strong></p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">sudo passwd root#会显示如下 按要求更改后重启ssh服务[sudo] password for kerwin: #输入当前用户密码New password: #输入root新密码Retype new password: #再次输入root密码passwd: password updated successfully #密码更新成功<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><strong>用root账户登录</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> vps </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> shadowsocks </tag>
             
         </tags>
       

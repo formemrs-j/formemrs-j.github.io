@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="超星作业云函数, HTML,CSS,Python,Java,JavaScript,JQuery,React,Vue.js等">
+    <meta name="keywords" content="nextcloud云盘安装, HTML,CSS,Python,Java,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="Demonstrate the temperature of technology">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>超星作业云函数 | WWJ&#39;s Grocery</title>
+    <title>nextcloud云盘安装 | WWJ&#39;s Grocery</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/awesome/css/all.css">
@@ -274,12 +274,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">超星作业云函数</h1>
+                    <h1 class="description center-align post-title">nextcloud云盘安装</h1>
                 </div>
             </div>
         </div>
@@ -395,8 +395,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/coding/">
-                                <span class="chip bg-color">coding</span>
+                            <a href="/tags/nextcloud/">
+                                <span class="chip bg-color">nextcloud</span>
                             </a>
                         
                     </div>
@@ -407,8 +407,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/python/" class="post-category">
-                                python
+                            <a href="/categories/vps/" class="post-category">
+                                vps
                             </a>
                         
                     </div>
@@ -420,21 +420,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-27
+                    2021-12-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-28
+                    2021-12-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    338
+                    500
                 </div>
                 
 
@@ -459,68 +459,48 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><ul>
-<li>每小时检测是否有未完成的作业，有通过微信推送提醒</li>
-</ul>
-<h2 id="云函数代码"><a href="#云函数代码" class="headerlink" title="云函数代码"></a>云函数代码</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">import requests
-import re
-import json
-REQUEST_URL='https://mooc1.chaoxing.com/mooc2/work/list?courseId=219653330&amp;classId=44557992&amp;cpi=148310557&amp;enc=f6c483c0cffe260125bd505724007a28'
-REQUEST_HEADER={
-    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36',
-    'cookie':""
-}
-PUSH_TOKEN=""
-homework_pattern="&lt;ul&gt;(.*?)&lt;/ul&gt;"
-title_pattern=r'&lt;p class="overHi.*?&gt;(.*?)&lt;/p&gt;'
-status_pattern=r'&lt;p class="status"&gt;(.*?)&lt;/p&gt;'
-deadline_pattern=r'&lt;img class.*?&gt;(.*?)&lt;/div&gt;'
-response=requests.get(url=REQUEST_URL,headers=REQUEST_HEADER)
-response.encoding='utf-8'
-#res=re.findall(homework_pattern,response.text,re.S | re.M)
-log=[]
-def inquiries_homework():
-    single_homework=re.findall(title_pattern,response.text,re.S | re.M)
-    single_status=re.findall(status_pattern,response.text, re.M |re.S)
-    single_deadline=re.findall(deadline_pattern,response.text,re.S | re.M)
-    for i in single_status:
-        if i == '未交':
-            num=single_status.index(i)
-            homework=single_homework[num]
-            status=single_status[num]
-            deadline=single_deadline[num]
-            log.append("作业名称：**"+homework.strip()+"**剩余时间：**"+deadline.strip()+"**当前状态："+status.strip())
-            print(log)
-            push()
-    # for i in single_deadline:
-    #     if i != '':
-    #         num=single_deadline.index(i)
-    #         homework=single_homework[num]
-    #         status=single_status[num]
-    #         deadline=i.strip()
-    #         log.append("作业名称：**"+homework.strip()+"**剩余时间：**"+deadline+"**当前状态："+status.strip())
-    #         push()
-def push():
-    token = PUSH_TOKEN
-    title= '主人，您在超星学习通还有份数学作业未完成，请尽快完成！' 
-    content =log
-    url = 'http://pushplus.hxtrip.com/send'
-    data = {
-    "token":token,
-    "title":title,
-    "content":content,
-    "template":"html"
-    }
-    body=json.dumps(data).encode(encoding='utf-8')
-    headers = {'Content-Type':'application/json'}
-    requests.post(url,data=body,headers=headers)
-    print('发送成功')
-def main_handler(event, context):
-    inquiries_homework()
-if __name__=='__main__':
-    inquiries_homework()
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="什么是snap"><a href="#什么是snap" class="headerlink" title="什么是snap"></a>什么是snap</h2><p><strong><code>Snap</code>的安装包扩展名是<code>.snap</code>，类似于一个容器，完全独立于系统，它包含一个应用程序需要用到的所有文件和库（<code>snap</code>包包含一个私有的<code>root</code>文件系统，里面包含了依赖的软件包）。它们会被安装到单独的目录，各个应用程序之间相互隔离，互不影响。而且安装快捷、创建简单、运行安全，易管理。目前支持的主流发行版有<code>Ubuntu</code>、<code>Debian</code>等。</strong></p>
+<p><strong>文章基于snap安装Nextcloud，docker也是可以的</strong></p>
+<p><strong>以下是snap的用法</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">#查看snap版本信息
+snap --version
+#找出所有snap应用
+snap find
+#安装应用
+snap install 包名
+#重启应用
+snap restart 应用名
+#升级应用
+snap refresh 应用名
+#查看安装的应用
+snap list
+#卸载应用
+snap remove 应用名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><strong>由于<code>Ubuntu 16.04</code>系统自带<code>Snap</code>，为了方便，可以直接使用该系统。<code>Snap</code>包自带<code>NextCloud</code>，所以我们可以直接安装</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">#更新系统
+apt-get update -y
+#安装NextCloud
+snap install nextcloud<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>这时候就可以打开<code>http://your_ip</code>进入登录页面了，如果想用域名登录并配置<code>SSL</code>证书的话，先别登录，请直接看后面。</strong></p>
+<h2 id="配置域名"><a href="#配置域名" class="headerlink" title="配置域名"></a>配置域名</h2><p><strong>将域名解析至<code>VPS</code>的<code>IP</code>就可以使用域名登录了，然后再添加<code> Let’s encrypt SSL</code>证书并使用<code>https</code>访问。</strong></p>
+<h2 id="添加SSL证书"><a href="#添加SSL证书" class="headerlink" title="添加SSL证书"></a>添加SSL证书</h2><p><strong>使用命令：</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nextcloud.enable-https lets-encrypt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>根据要求输入你的邮箱，域名即可！然后就可以打开域名并设置账号和密码登录了。</strong></p>
+<h2 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h2><p><strong>先等域名解析完成后再申请SSL证书</strong></p>
+<p><strong>提示不安全连接的解决方案</strong></p>
+<p><strong>打开nextcloud目录下的config.php文件，我的地址为var/snap/nextcloud/28654/nextcloud/config/</strong></p>
+<p><strong>在trusted_domains数组中添加你的服务器ip和对应域名</strong></p>
+<p><strong>并且在数组后加上</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">'overwritehost' =&gt; '你的域名',
+'overwriteprotocol' =&gt; 'https'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.moerats.com/archives/429/">Snap下安装nextcloud</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/mouseleo/p/15516828.html">NextCloud 使用https反向代理后PC端异常</a></li>
+</ul>
 
                 
             </div>
@@ -547,7 +527,7 @@ if __name__=='__main__':
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://formemrs-j.github.io/2021/09/27/chao-xing-zuo-ye-yun-han-shu/">https://formemrs-j.github.io/2021/09/27/chao-xing-zuo-ye-yun-han-shu/</a>
+                    <a href="https://formemrs-j.github.io/2021/12/05/nextcloud-yun-pan-an-zhuang/">https://formemrs-j.github.io/2021/12/05/nextcloud-yun-pan-an-zhuang/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -585,8 +565,8 @@ if __name__=='__main__':
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/coding/">
-                                    <span class="chip bg-color">coding</span>
+                                <a href="/tags/nextcloud/">
+                                    <span class="chip bg-color">nextcloud</span>
                                 </a>
                             
                         </div>
@@ -762,31 +742,31 @@ if __name__=='__main__':
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/04/qian-duan-quan-zhan-xue-xi/">
+                <a href="/2021/12/05/qing-long-mian-ban/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/featureimages/20.jpg" class="responsive-img" alt="前端全栈学习">
+                        <img src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/featureimages/4.jpg" class="responsive-img" alt="青龙面板">
                         
-                        <span class="card-title">前端全栈学习</span>
+                        <span class="card-title">青龙面板</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            记录前端学习过程
+                            vps搭建青龙面板Docker
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-04
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-05
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/html5/" class="post-category">
-                                    html5
+                            <a href="/categories/vps/" class="post-category">
+                                    vps
                                 </a>
                             
                             
@@ -796,8 +776,8 @@ if __name__=='__main__':
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/coding/">
-                        <span class="chip bg-color">coding</span>
+                    <a href="/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/">
+                        <span class="chip bg-color">青龙面板</span>
                     </a>
                     
                 </div>
@@ -811,31 +791,31 @@ if __name__=='__main__':
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/09/27/jiao-wu-wang-gong-gao-yun-han-shu/">
+                <a href="/2021/12/05/x-ui-mian-ban/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="教务网公告云函数">
+                        <img src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="x-ui面板">
                         
-                        <span class="card-title">教务网公告云函数</span>
+                        <span class="card-title">x-ui面板</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            教务网公告监控
+                            vps搭建x-ui控制面板教程
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/vps/" class="post-category">
+                                    vps
                                 </a>
                             
                             
@@ -845,8 +825,8 @@ if __name__=='__main__':
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/coding/">
-                        <span class="chip bg-color">coding</span>
+                    <a href="/tags/v2ray/">
+                        <span class="chip bg-color">v2ray</span>
                     </a>
                     
                 </div>
