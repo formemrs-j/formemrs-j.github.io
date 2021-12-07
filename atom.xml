@@ -6,7 +6,7 @@
   <link href="https://formemrs-j.github.io/atom.xml" rel="self"/>
   
   <link href="https://formemrs-j.github.io/"/>
-  <updated>2021-12-07T11:30:05.950Z</updated>
+  <updated>2021-12-07T11:48:07.635Z</updated>
   <id>https://formemrs-j.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SSCN模型分析</title>
+    <link href="https://formemrs-j.github.io/2021/12/07/sscn-mo-xing-fen-xi/"/>
+    <id>https://formemrs-j.github.io/2021/12/07/sscn-mo-xing-fen-xi/</id>
+    <published>2021-12-07T11:37:30.000Z</published>
+    <updated>2021-12-07T11:48:07.635Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="demo-run-py"><a href="#demo-run-py" class="headerlink" title="demo_run.py"></a>demo_run.py</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;demo-run-py&quot;&gt;&lt;a href=&quot;#demo-run-py&quot; class=&quot;headerlink&quot; title=&quot;demo_run.py&quot;&gt;&lt;/a&gt;demo_run.py&lt;/h2&gt;</summary>
+      
+    
+    
+    
+    <category term="python" scheme="https://formemrs-j.github.io/categories/python/"/>
+    
+    
+    <category term="深度学习" scheme="https://formemrs-j.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>拉勾网爬虫</title>
@@ -203,8 +227,8 @@
   
   <entry>
     <title>腾讯云函数玩法</title>
-    <link href="https://formemrs-j.github.io/2021/09/27/jiao-wu-wang-gong-gao-yun-han-shu/"/>
-    <id>https://formemrs-j.github.io/2021/09/27/jiao-wu-wang-gong-gao-yun-han-shu/</id>
+    <link href="https://formemrs-j.github.io/2021/09/27/yun-han-shu-wan-fa/"/>
+    <id>https://formemrs-j.github.io/2021/09/27/yun-han-shu-wan-fa/</id>
     <published>2021-09-27T14:03:28.000Z</published>
     <updated>2021-12-07T11:33:15.006Z</updated>
     

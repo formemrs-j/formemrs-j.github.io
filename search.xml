@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>SSCN模型分析</title>
+      <link href="/2021/12/07/sscn-mo-xing-fen-xi/"/>
+      <url>/2021/12/07/sscn-mo-xing-fen-xi/</url>
+      
+        <content type="html"><![CDATA[<h2 id="demo-run-py"><a href="#demo-run-py" class="headerlink" title="demo_run.py"></a>demo_run.py</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>拉勾网爬虫</title>
       <link href="/2021/12/07/la-gou-wang-pa-chong/"/>
       <url>/2021/12/07/la-gou-wang-pa-chong/</url>
@@ -205,8 +230,8 @@
     
     <entry>
       <title>腾讯云函数玩法</title>
-      <link href="/2021/09/27/jiao-wu-wang-gong-gao-yun-han-shu/"/>
-      <url>/2021/09/27/jiao-wu-wang-gong-gao-yun-han-shu/</url>
+      <link href="/2021/09/27/yun-han-shu-wan-fa/"/>
+      <url>/2021/09/27/yun-han-shu-wan-fa/</url>
       
         <content type="html"><![CDATA[<h1 id="脚本合集"><a href="#脚本合集" class="headerlink" title="脚本合集"></a>脚本合集</h1><h2 id="项目1-监控教务网公告"><a href="#项目1-监控教务网公告" class="headerlink" title="项目1(监控教务网公告)"></a>项目1(监控教务网公告)</h2><ul><li>每小时监控是否有新的新闻发布，如果有将通过pushplus推送</li></ul><h3 id="云函数代码"><a href="#云函数代码" class="headerlink" title="云函数代码"></a>云函数代码</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">import requestsimport reimport datetimeimport jsonREQUEST_URL = 'https://jww.zjgsu.edu.cn/1319/list.htm'REQUEST_HEADER={    'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36 Edg/94.0.992.31',    'accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',    'cache-control':'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'}log=[]PUSH_TOKEN="你的token"#你的tokennews_pattern = r'li class="column-news-item item.*?&gt;(.*?)&lt;/li&gt;' #匹配所有新闻new_pattern = r'&lt;a .*?&gt;(.*?)&lt;/a&gt;' #匹配文本date_pattern = r'&lt;span class="column-news-date news-date.*?&gt;(.*?)&lt;/span&gt;'#匹配日期#link_pattern=r'href="(.*?)"'#匹配网址def get_news():    response = requests.get(url=REQUEST_URL,headers=REQUEST_HEADER)    response.encoding='utf-8'    total_news = re.findall(news_pattern, response.text, re.S | re.M)    now_time = datetime.datetime.now().strftime('%Y-%m-%d')    for content in total_news:        news = re.findall(new_pattern, content, re.S | re.M)        date = re.findall(date_pattern, content, re.S | re.M)#       link=re.findall(link_pattern,content,re.I | re.S | re.M)        if date[0] == now_time:           log.append(news[0]+"|"+date[0])           print("任务完成")           push()def push():    token = PUSH_TOKEN    title= '主人，发现一条新的教务网新闻'     content =log    url = 'http://pushplus.hxtrip.com/send'    data = {    "token":token,    "title":title,    "content":content,    "template":"html"    }    body=json.dumps(data).encode(encoding='utf-8')    headers = {'Content-Type':'application/json'}    requests.post(url,data=body,headers=headers)    print('发送成功')def main_handler(event, context):    get_news()if __name__=='__main__':    get_news()#total_news=re.findall('&lt;ul&gt;(.*?)&lt;div id="wp_paging_w9"&gt;',response.text,re.I | re.S | re.M)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="项目2-超星作业监控"><a href="#项目2-超星作业监控" class="headerlink" title="项目2(超星作业监控)"></a>项目2(超星作业监控)</h2><h3 id="云函数代码-1"><a href="#云函数代码-1" class="headerlink" title="云函数代码"></a>云函数代码</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">import requestsimport reimport jsonREQUEST_URL='https://mooc1.chaoxing.com/mooc2/work/list?courseId=219653330&amp;classId=44557992&amp;cpi=148310557&amp;enc=f6c483c0cffe260125bd505724007a28'REQUEST_HEADER={    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36',    'cookie':""}PUSH_TOKEN=""homework_pattern="&lt;ul&gt;(.*?)&lt;/ul&gt;"title_pattern=r'&lt;p class="overHi.*?&gt;(.*?)&lt;/p&gt;'status_pattern=r'&lt;p class="status"&gt;(.*?)&lt;/p&gt;'deadline_pattern=r'&lt;img class.*?&gt;(.*?)&lt;/div&gt;'response=requests.get(url=REQUEST_URL,headers=REQUEST_HEADER)response.encoding='utf-8'#res=re.findall(homework_pattern,response.text,re.S | re.M)log=[]def inquiries_homework():    single_homework=re.findall(title_pattern,response.text,re.S | re.M)    single_status=re.findall(status_pattern,response.text, re.M |re.S)    single_deadline=re.findall(deadline_pattern,response.text,re.S | re.M)    for i in single_status:        if i == '未交':            num=single_status.index(i)            homework=single_homework[num]            status=single_status[num]            deadline=single_deadline[num]            log.append("作业名称：**"+homework.strip()+"**剩余时间：**"+deadline.strip()+"**当前状态："+status.strip())            print(log)            push()    # for i in single_deadline:    #     if i != '':    #         num=single_deadline.index(i)    #         homework=single_homework[num]    #         status=single_status[num]    #         deadline=i.strip()    #         log.append("作业名称：**"+homework.strip()+"**剩余时间：**"+deadline+"**当前状态："+status.strip())    #         push()def push():    token = PUSH_TOKEN    title= '主人，您在超星学习通还有份数学作业未完成，请尽快完成！'     content =log    url = 'http://pushplus.hxtrip.com/send'    data = {    "token":token,    "title":title,    "content":content,    "template":"html"    }    body=json.dumps(data).encode(encoding='utf-8')    headers = {'Content-Type':'application/json'}    requests.post(url,data=body,headers=headers)    print('发送成功')def main_handler(event, context):    inquiries_homework()if __name__=='__main__':    inquiries_homework()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       
