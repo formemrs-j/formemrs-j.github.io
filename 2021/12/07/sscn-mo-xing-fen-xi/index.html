@@ -482,17 +482,17 @@ df=pd.read_csv("d.csv")
 df = df[['word','wordid']]
 print(df)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><a target="_blank" rel="noopener" href="https://gitee.com/wwj1026/image/raw/master/20211209/inG@RXE*pjFg.png"><img src="https://gitee.com/wwj1026/image/raw/master/20211209/inG@RXE*pjFg.png" alt="https://gitee.com/wwj1026/image/raw/master/20211209/inG@RXE*pjFg.png"></a></p>
+<p><img src="https://gitee.com/wwj1026/image/raw/master/20211209/inG@RXE*pjFg.png"></p>
 <p>可以看到返回的是表格型的数据结构，比.csv文件用逗号分隔更直观，接着<code>df = df[[key, value]]</code>只读取<code>word``wordid</code>这两列数据，然后定义一个空字典<code>dct</code>，我们尝试调用<code>df.values.tolist()</code>来查看它的返回值</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">print(df.values.tolist())<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><a target="_blank" rel="noopener" href="https://gitee.com/wwj1026/image/raw/master/20211209/QU@sBNsbYkzd.png"><img src="https://gitee.com/wwj1026/image/raw/master/20211209/QU@sBNsbYkzd.png" alt="https://gitee.com/wwj1026/image/raw/master/20211209/QU@sBNsbYkzd.png"></a></p>
+<p><img src="https://gitee.com/wwj1026/image/raw/master/20211209/QU@sBNsbYkzd.png"></p>
 <p>可以看到该方法将读取的数据构造成一个二维数组，那么后面的就好理解了，用for循环遍历这个二位数组，并将每一个数组元素转换成字典的形式，我们尝试调用一下</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">for word,id in df.values.tolist():
     dct[word]=id
     print(dct)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><a target="_blank" rel="noopener" href="https://gitee.com/wwj1026/image/raw/master/20211209/iaxQOqD5C"><img src="https://gitee.com/wwj1026/image/raw/master/20211209/iaxQOqD5C" alt="https://gitee.com/wwj1026/image/raw/master/20211209/iaxQOqD5C"></a></p>
+<p><img src="https://gitee.com/wwj1026/image/raw/master/20211209/iaxQOqD5C"></p>
 <p>可以看到结果就是我们预测的那样，最后返回构造的字典</p>
 <h2 id="temptation2lst"><a href="#temptation2lst" class="headerlink" title="temptation2lst"></a>temptation2lst</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">def temptation2lst(temptation_str, dct_temptation):
     lst = []
@@ -527,7 +527,7 @@ data1 = pickle.load(pkl_file,encoding='utf-8')
 print(data1)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>尝试调用并打印出来，发现数据太多了，跑了一点大概可以看出序列化后是<code>二维元组？</code></p>
-<p><a target="_blank" rel="noopener" href="https://gitee.com/wwj1026/image/raw/master/20211209/^Lap4w^aLm2P.png"><img src="https://gitee.com/wwj1026/image/raw/master/20211209/^Lap4w^aLm2P.png" alt="https://gitee.com/wwj1026/image/raw/master/20211209/^Lap4w^aLm2P.png"></a></p>
+<p><img src="https://gitee.com/wwj1026/image/raw/master/20211209/^Lap4w^aLm2P.png"></p>
 <p>其中<code>.pkl</code>是python独有的一种文件储存格式，需要用<code>pickle</code>包来反序列化，返回的应该是元组类型的数据，然后读取，<code>time_ids</code>,<code>salaries</code>……等各项数据并返回</p>
 <h2 id="read-dict-md"><a href="#read-dict-md" class="headerlink" title="read_dict(md)"></a>read_dict(md)</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">def read_dict(md):
     dct_compname = read_dictionary_from_file(md, "company_dct", key="name")
@@ -541,7 +541,7 @@ print(data1)<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
     return dct_compname, dct_comp, dct_city, dct_time, dct_workyear, dct_temptation, dct_skill, dct_level<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>调用<code>read_dictionary_from_file</code>函数，依次读取<code>demo_data/dicts</code>下的.csv文件并返回操作后的字典数据</p>
-<p><a target="_blank" rel="noopener" href="https://gitee.com/wwj1026/image/raw/master/20211209/Mbdo9S9HtJcd.png"><img src="https://gitee.com/wwj1026/image/raw/master/20211209/Mbdo9S9HtJcd.png" alt="https://gitee.com/wwj1026/image/raw/master/20211209/Mbdo9S9HtJcd.png"></a></p>
+<p><img src="https://gitee.com/wwj1026/image/raw/master/20211209/Mbdo9S9HtJcd.png"></p>
 <h2 id="transform-jd"><a href="#transform-jd" class="headerlink" title="transform_jd"></a>transform_jd</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">def transform_jd(md, row_dct):
     dct_compname, dct_comp, dct_city, dct_time, dct_workyear, dct_temptation, dct_skill, dct_level = read_dict(md)
 
