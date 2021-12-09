@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>SSCN模型分析 | WWJ&#39;s Grocery</title>
+    <title>SSCN模型分析 | WWJ&#39;s Blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/awesome/css/all.css">
@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="WWJ's Grocery" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="WWJ's Blog" type="application/atom+xml">
 
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
@@ -57,7 +57,7 @@
                     
                     <img src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/logo.gif" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">WWJ&#39;s Grocery</span>
+                    <span class="logo-span">WWJ&#39;s Blog</span>
                 </a>
             </div>
             
@@ -156,7 +156,7 @@
         
         <img src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/logo.gif" class="logo-img circle responsive-img">
         
-        <div class="logo-name">WWJ&#39;s Grocery</div>
+        <div class="logo-name">WWJ&#39;s Blog</div>
         <div class="logo-desc">
             
             Demonstrate the temperature of technology
@@ -459,7 +459,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="demo-run-py"><a href="#demo-run-py" class="headerlink" title="demo_run.py"></a>demo_run.py</h1><h2 id="read-dictionary-from-file"><a href="#read-dictionary-from-file" class="headerlink" title="read_dictionary_from_file"></a>read_dictionary_from_file</h2><h3 id="处理-demo-dict文件夹下的csv文件-返回处理好的字典，字典的组成为-‘word’-’wordid’"><a href="#处理-demo-dict文件夹下的csv文件-返回处理好的字典，字典的组成为-‘word’-’wordid’" class="headerlink" title="#处理/demo/dict文件夹下的csv文件 返回处理好的字典，字典的组成为{‘word’,’wordid’}"></a>#处理/demo/dict文件夹下的csv文件 返回处理好的字典，字典的组成为{‘word’,’wordid’}</h3><p>没有学习过pandas和tensorflow，所以理解代码采用边学习边分析的方式</p>
+                <h1 id="demo-run-py"><a href="#demo-run-py" class="headerlink" title="demo_run.py"></a>demo_run.py</h1><h2 id="read-dictionary-from-file"><a href="#read-dictionary-from-file" class="headerlink" title="read_dictionary_from_file"></a>read_dictionary_from_file</h2><p>没有学习过<code>pandas</code>和<code>tensorflow</code>，所以理解代码采用边学习边分析的方式</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">def read_dictionary_from_file(md, table_name, key="word", value="wordid"):
     df = pd.read_csv("%s/dicts/%s.csv"%(DEMO_DATA_PATH, table_name))
     df = df[[key, value]]
@@ -494,7 +494,8 @@ print(df)<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 
 <p><img src="https://gitee.com/wwj1026/image/raw/master/20211209/!VQA@gWpWfVM.png"></p>
 <p>可以看到结果就是我们预测的那样，最后返回构造的字典</p>
-<h2 id="temptation2lst"><a href="#temptation2lst" class="headerlink" title="temptation2lst"></a>temptation2lst</h2><h3 id="遍历传入的dct-temptation的键和temptation-str的键进行比较，相同就把键对应的值加入到列表lst中"><a href="#遍历传入的dct-temptation的键和temptation-str的键进行比较，相同就把键对应的值加入到列表lst中" class="headerlink" title="#遍历传入的dct_temptation的键和temptation_str的键进行比较，相同就把键对应的值加入到列表lst中"></a>#遍历传入的dct_temptation的键和temptation_str的键进行比较，相同就把键对应的值加入到列表lst中</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">def temptation2lst(temptation_str, dct_temptation):
+<p><strong>总结：函数read_dictionary_from_file处理/demo/dict文件夹下的csv文件 返回处理好的字典，字典的组成为{‘word’,’wordid’}</strong></p>
+<h2 id="temptation2lst"><a href="#temptation2lst" class="headerlink" title="temptation2lst"></a>temptation2lst</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">def temptation2lst(temptation_str, dct_temptation):
     lst = []
     for key in dct_temptation.keys():
         if temptation_str.find(key) != -1:
@@ -502,6 +503,7 @@ print(df)<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
     return lst<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这个函数传入的两个参数，定义了一个空列表，用for循环遍历传入的字典(应该是)，如果有找到key的值，那么把数据添加到这个列表里，返回这个列表</p>
+<p><strong>总结：函数temptation2lst遍历传入的dct_temptation的键和temptation_str的键进行比较，相同就把键对应的值加入到列表lst中</strong></p>
 <h2 id="compare-ret-这个函数在demo-run-py并没有调用"><a href="#compare-ret-这个函数在demo-run-py并没有调用" class="headerlink" title="compare_ret() (这个函数在demo_run.py并没有调用)"></a><del>compare_ret() (这个函数在demo_run.py并没有调用)</del></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">def compare_ret(id): # [4,5,9,31,37,38,41,46,74,76]
 
     with open("%s/%s/input_skillfeat.pkl" % (DATA_PATH, "IT"), 'rb') as f:
@@ -529,7 +531,7 @@ print(data1)<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <p>尝试调用并打印出来，发现数据太多了，跑了一点大概可以看出反序列化后是<code>二维元组？</code></p>
 <p><img src="https://gitee.com/wwj1026/image/raw/master/20211209/^Lap4w^aLm2P.png"></p>
 <p>其中<code>.pkl</code>是python独有的一种文件储存格式，需要用<code>pickle</code>包来反序列化，返回的应该是元组类型的数据，然后读取，<code>time_ids</code>,<code>salaries</code>……等各项数据并返回</p>
-<h2 id="read-dict-md"><a href="#read-dict-md" class="headerlink" title="read_dict(md)"></a>read_dict(md)</h2><h3 id="调用read-dictionary-from-file，读取并返回-‘word’-’wordid’-这种格式的字典"><a href="#调用read-dictionary-from-file，读取并返回-‘word’-’wordid’-这种格式的字典" class="headerlink" title="#调用read_dictionary_from_file，读取并返回{‘word’,’wordid’}这种格式的字典"></a>#调用read_dictionary_from_file，读取并返回{‘word’,’wordid’}这种格式的字典</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">def read_dict(md):
+<h2 id="read-dict-md"><a href="#read-dict-md" class="headerlink" title="read_dict(md)"></a>read_dict(md)</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">def read_dict(md):
     dct_compname = read_dictionary_from_file(md, "company_dct", key="name")
     dct_comp = read_dictionary_from_file(md, "company_dct")
     dct_city = read_dictionary_from_file(md, "city_dct")
@@ -546,7 +548,8 @@ print(data1)<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">{'word','wordid'}
 #word和wordid都是csv文件的属性值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h2 id="transform-jd"><a href="#transform-jd" class="headerlink" title="transform_jd"></a>transform_jd</h2><h3 id="处理read-dct返回的-‘word’-’wordid’-这种格式的字典，读取他们对应的值，填入列表并返回"><a href="#处理read-dct返回的-‘word’-’wordid’-这种格式的字典，读取他们对应的值，填入列表并返回" class="headerlink" title="#处理read_dct返回的{‘word’,’wordid’}这种格式的字典，读取他们对应的值，填入列表并返回"></a>#处理read_dct返回的{‘word’,’wordid’}这种格式的字典，读取他们对应的值，填入列表并返回</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">def transform_jd(md, row_dct):
+<p><strong>总结：函数read_dict(md)调用read_dictionary_from_file，读取并返回{‘word’,’wordid’}这种格式的字典</strong></p>
+<h2 id="transform-jd"><a href="#transform-jd" class="headerlink" title="transform_jd"></a>transform_jd</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">def transform_jd(md, row_dct):
     dct_compname, dct_comp, dct_city, dct_time, dct_workyear, dct_temptation, dct_skill, dct_level = read_dict(md)
 
     # id, time, comp_id, job_title, job_salary, job_address, job_work_year, job_temptation, skill_set
@@ -625,7 +628,8 @@ if __name__ == '__main__':
 <img src="https://gitee.com/wwj1026/image/raw/master/20211209/ZCW5MXjQuHsx.png" style="zoom:40%;">
 
 <p>那么<code>temptation</code>就是调用后返回的<code>lst</code></p>
-<h2 id="input-generate"><a href="#input-generate" class="headerlink" title="input_generate"></a>input_generate</h2><h3 id="暂未分析"><a href="#暂未分析" class="headerlink" title="暂未分析"></a>暂未分析</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">def input_generate(md, row_dct):
+<p><strong>总结：函数transform_jd处理read_dct返回的{‘word’,’wordid’}这种格式的字典，读取他们对应的值，填入列表并返回</strong></p>
+<h2 id="input-generate"><a href="#input-generate" class="headerlink" title="input_generate"></a>input_generate</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">def input_generate(md, row_dct):
     # ------------------- read information --------------
     with open("%s/%s/input_skillfeat.pkl" % (DATA_PATH, md) , 'rb') as f:
         dct = pickle.load(f, encoding='utf-8')
@@ -714,6 +718,7 @@ if __name__ == '__main__':
             data_time_id, data_work_year, data_temptation, data_target_id), (comp_ind_dict, city_ind_dict)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>打开<code>input_skillfeat.pkl</code>文件，反序列化并返回字典dct，读取字典的各项值。处理并返回读取的这些值</p>
+<p><strong>暂未分析</strong></p>
 <h2 id="main"><a href="#main" class="headerlink" title="main"></a>main</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">if __name__== '__main__':
     starttime = time()
     os.environ['CUDA_VISIBLE_DEVICES'] = '2'
@@ -1576,7 +1581,7 @@ if __name__ == '__main__':
 
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
-            + '来源: WWJ&#39;s Grocery<br />'
+            + '来源: WWJ&#39;s Blog<br />'
             + '文章作者: Wu Weijie<br />'
             + '文章链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
@@ -1724,7 +1729,7 @@ if __name__ == '__main__':
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">14.9k</span>
+                        class="white-color">15k</span>
             
             
             
