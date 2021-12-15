@@ -42,8 +42,8 @@
 
 <meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="WWJ's Blog" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="WWJ's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -513,7 +513,7 @@ yzm:验证码<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
     self.enPassword = HB64().hex2b64(rsaKey.encrypt(self.Password))
     print(self.enPassword)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>下面就是解决验证码的问题，由三种解决办法，要么你把图片保存到本地，然后自己打码，但是对懒人的我肯定是不会这么干的，既然选择写脚本就是要全自动，第二种就是自己训练AI来识别验证码，这也是我非常感兴趣的一块地方， 但是这里太浪费时间了，所以我们在这里选择第三方的打码平台，简单也方便也便宜。</p>
+<p>下面就是解决验证码的问题，有三种解决办法，要么你把图片保存到本地，然后自己打码，但是对懒人的我肯定是不会这么干的，既然选择写脚本就是要全自动，第二种就是自己训练AI来识别验证码，这也是我非常感兴趣的一块地方， 但是这里太浪费时间了，所以我们在这里选择第三方的打码平台，简单也方便也便宜。</p>
 <p>这里我选择<a target="_blank" rel="noopener" href="http://www.kuaishibie.cn/">快打码</a>，没啥就是便宜而已</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">def base64_api(self):
     res = self.session.get(url=self.Img_url)
@@ -1044,7 +1044,7 @@ yzm:验证码<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">17.7k</span>
+                        class="white-color">17.8k</span>
             
             
             

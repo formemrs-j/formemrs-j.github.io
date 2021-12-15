@@ -42,8 +42,8 @@
 
 <meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="WWJ's Blog" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="WWJ's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -434,7 +434,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    688
+                    805
                 </div>
                 
 
@@ -485,7 +485,7 @@
 <p>我们单点进入方法，看一看它的原型，发现他在<code>security.js</code>里</p>
 <img src="https://gitee.com/wwj1026/image/raw/master/20211214/fJg5OofwL1@i.png" style="zoom:50%;">
 
-<p>很显然，<code>security.js</code>里就是<code>RSA加密</code>的函数，那么问题来了，怎么同Python实现这个加密，要么就是直接将这个<code>security.js</code>改写成<code>security.py</code>但是这个工作量太大了，或者就是通过python来调用<code>security.js</code>代码，很显然这个工作量要远小于第一种</p>
+<p>很显然，<code>security.js</code>里就是<code>RSA加密</code>的函数，那么问题来了，怎么用Python实现这个加密，要么就是直接将这个<code>security.js</code>改写成<code>security.py</code>但是这个工作量太大了，或者就是通过python来调用<code>security.js</code>代码，很显然这个工作量要远小于第一种</p>
 <p>这就要用到有关<code>js的类库</code>这里我选择<code>execjs</code>，我们把整个<code>security.js</code>下载下来，简单改写一下，在最后添加一个调用的js函数</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">aaaa</span><span class="token punctuation">(</span><span class="token parameter">modulus<span class="token punctuation">,</span>password</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 <span class="token keyword">var</span> exponent <span class="token operator">=</span> <span class="token string">"10001"</span><span class="token punctuation">;</span>
@@ -518,6 +518,13 @@ execution1 = execution[0]<span aria-hidden="true" class="line-numbers-rows"><spa
 <img src="https://gitee.com/wwj1026/image/raw/master/20211214/5qBV*n3CEwIm.png" style="zoom:50%;">
 
 <p>成功输出了<code>execution</code>接下来就是构造表单登录</p>
+<p>我们简单构造一下登录</p>
+<img src="https://gitee.com/wwj1026/image/raw/master/20211214/!NEqirfKvlTO.png" style="zoom:50%;">
+
+<p>很轻松就登录成功了，但是，这就完了吗，当我兴致勃勃准备访问其他网页时，我发现还是显示我未登录，那么问题出在哪，我查看请求得表单，发现多了一个参数<code>X-XSRF-Token</code></p>
+<img src="https://gitee.com/wwj1026/image/raw/master/20211214/jRqDkjEH27eo.png" style="zoom:50%;">
+
+<p>很显然，这又是一个加密参数，果然，不要验证码得就是没那么简单，我们尝试查找<code>X-XSRF-TOKEN</code>的来源</p>
 
                 
             </div>
@@ -1034,7 +1041,7 @@ execution1 = execution[0]<span aria-hidden="true" class="line-numbers-rows"><spa
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">17.7k</span>
+                        class="white-color">17.8k</span>
             
             
             
