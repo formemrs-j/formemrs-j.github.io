@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>linux下常用命令</title>
+      <link href="/2021/12/15/linux-xia-chang-yong-ming-ling/"/>
+      <url>/2021/12/15/linux-xia-chang-yong-ming-ling/</url>
+      
+        <content type="html"><![CDATA[<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="nohup命令"><a href="#nohup命令" class="headerlink" title="nohup命令"></a>nohup命令</h2><p>作用：后台运行某些程序</p><p>语法：nohup command</p><p>例如：nohup python3 test.py</p><p>查看运行日志</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">tail -fn 50 nohup.out<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>我的商大登录分析</title>
       <link href="/2021/12/14/wo-de-shang-da-deng-lu-fen-xi/"/>
       <url>/2021/12/14/wo-de-shang-da-deng-lu-fen-xi/</url>
