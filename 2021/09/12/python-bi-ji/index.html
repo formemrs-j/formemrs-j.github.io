@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Python爬虫日常, HTML,CSS,Python,Java,JavaScript,JQuery,React,Vue.js等">
+    <meta name="keywords" content="Python笔记, HTML,CSS,Python,Java,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="Demonstrate the temperature of technology">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>Python爬虫日常 | WWJ&#39;s Blog</title>
+    <title>Python笔记 | WWJ&#39;s Blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/awesome/css/all.css">
@@ -40,9 +40,9 @@
 
     <script src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="WWJ's Blog" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="WWJ's Blog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -274,12 +274,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Python爬虫日常</h1>
+                    <h1 class="description center-align post-title">Python笔记</h1>
                 </div>
             </div>
         </div>
@@ -427,14 +427,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-12-23
+                    2021-12-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.9k
+                    7.9k
                 </div>
                 
 
@@ -465,6 +465,7 @@
 <li><strong>2021.9.21第十章正则表达式与json</strong></li>
 <li><strong>2021.9.22第十三章原生爬虫</strong></li>
 <li><strong>2021.12.22第十一章高级用法</strong></li>
+<li><strong>2021.12.25第十二章函数式编程，Pythonic</strong></li>
 </ul>
 <h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><p><strong>数字整型，浮点</strong></p>
 <ul>
@@ -1575,7 +1576,516 @@ print(r.group(1))#要匹配结果从1开始
 <li>序列化-将语言所对应的格式组装成json</li>
 </ul>
 <h2 id="Python的高级语法与用法"><a href="#Python的高级语法与用法" class="headerlink" title="Python的高级语法与用法"></a>Python的高级语法与用法</h2><p><strong>枚举</strong></p>
-<h2 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h2><h2 id="实战-原生爬虫"><a href="#实战-原生爬虫" class="headerlink" title="实战:原生爬虫"></a>实战:原生爬虫</h2><h2 id="Pythonic与Python杂记"><a href="#Pythonic与Python杂记" class="headerlink" title="Pythonic与Python杂记"></a>Pythonic与Python杂记</h2>
+<ul>
+<li>枚举是一个类，继承Enum这个父类</li>
+</ul>
+<p><strong>枚举和普通类相比有什么优势</strong></p>
+<ul>
+<li>枚举的值不可改变</li>
+<li>枚举可以避免相同值的存在</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from enum import Enum
+
+class VIP(Enum):
+    YELLOW = 1
+    GREEN = 2
+    BLACK = 3
+    RED = 4
+print(VIP.GREEN) <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<img src="https://gitee.com/wwj1026/image/raw/master/20211225/jNvMKLSKrF93.png" style="zoom:50%;">
+
+<p>用<code>类.变量名</code>这种方式获取到的是枚举类型</p>
+<img src="https://gitee.com/wwj1026/image/raw/master/20211225/7*BQ1to^1eyN.png" style="zoom:50%;">
+
+<p><strong>枚举类型、枚举名称、枚举值</strong></p>
+<ul>
+<li>类.变量名得到的是枚举类型</li>
+<li>类.变量名.name得到枚举名称</li>
+<li>类.变量名.value得到枚举值</li>
+<li>枚举是可以遍历的</li>
+</ul>
+<p>想要获取枚举类下变量的值</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">print(VIP.GREEN.value)
+#使用value关键字<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>获取枚举的名字</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">print(VIP.GREEN.name)
+#使用name关键字<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>枚举是可以遍历的</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">for x in VIP:
+    print(x)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PS D:\py\twelve&gt; python a.py
+VIP.YELLOW
+VIP.GREEN
+VIP.BLACK
+VIP.RED<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>枚举的比较运算</strong></p>
+<ul>
+<li>枚举可以进行等值比较和身份比较</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">result = VIP.GREEN == VIP.RED
+print(result)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PS D:\py\twelve&gt; python a.py
+False<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">result = VIP.GREEN is VIP.RED
+print(result)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PS D:\py\twelve&gt; python a.py
+False<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><strong>枚举的注意事项</strong></p>
+<ul>
+<li>枚举不同标签对应同一个值那么第二个值会被认为是第一个值的别名</li>
+<li>如果想要遍历所有的枚举可以用<code>__members__.items()</code>方法</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from enum import Enum
+
+class VIP(Enum):
+    YELLOW = 1
+    BLUE = 1
+    GREEN = 2
+    BLACK = 3
+    RED = 4
+print(VIP.BLUE)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PS D:\py\twelve&gt; python a.py
+VIP.YELLOW<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>在这个示例中，VIP.BLUE会被认为是VIP.YELLOW的别名</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">for x in VIP.__members__.items():
+    print(x)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PS D:\py\twelve&gt; python a.py
+('YELLOW', &lt;VIP.YELLOW: 1&gt;)
+('BLUE', &lt;VIP.YELLOW: 1&gt;)
+('GREEN', &lt;VIP.GREEN: 2&gt;)
+('BLACK', &lt;VIP.BLACK: 3&gt;)
+('RED', &lt;VIP.RED: 4&gt;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>枚举转换</strong></p>
+<ul>
+<li>将枚举的值转换成枚举类型</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">print(VIP(a))<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>将需要转换的值传递到类中即可</p>
+<p><strong>枚举小结</strong></p>
+<ul>
+<li>要想枚举的数据类型都是整数，可以继承IntEnum</li>
+<li>要想枚举的值没有重复，可以用unique装饰器</li>
+</ul>
+<p><strong>闭包</strong></p>
+<ul>
+<li>定义时的函数+环境变量构成闭包</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def curve_pre():
+    a = 25
+    def curve(x):
+        return a*x*x
+    return curve
+
+f = curve_pre()
+print(f(2))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>闭包误区</strong></p>
+<ul>
+<li>一定要注意闭包是函数+环境变量</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def f():
+    a = 10
+    def f1():
+        a = 20
+        return a
+    return f1
+
+result = f()
+print(result.__closure__)
+#此时a=10被python忽略 而a=20被当作是局部变量 所以就导致环境变量不存在，闭包不存在<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PS D:\py\twelve&gt; python c.py
+None<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>修改后 注释掉环境变量闭包即存在</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def f():
+    a = 10
+    def f1():
+        # a = 20
+        return a
+    return f1
+
+result = f()
+print(result.__closure__)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PS D:\py\twelve&gt; python c.py
+(&lt;cell at 0x000001B6A1ADF940: int object at 0x000001B6A14B6A50&gt;,)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><strong>闭包解决问题</strong></p>
+<p>非闭包方案</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">origin = 0
+def go(step):
+    global origin
+    new_pos =origin +step
+    origin = new_pos
+    #如果不加global关键字那么上面第一行会报错，python会把等号左边的当作是一个局部变量
+    #而局部变量在这才定义了，就会导致上面第一行报错
+    return origin
+
+print(go(2))
+print(go(3))
+print(go(5))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>闭包方案</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">origin = 0
+
+def factory(pos):
+    def go(step):
+        nonlocal pos
+        #使用nonlocal关键字 让pos变成非局部变量 删掉会报错
+        new_pos = pos +step
+        pos = new_pos
+        return pos
+    return go
+
+tourist =factory(origin)
+print(tourist(2))
+print(tourist(3))
+print(tourist(5))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h2><p><strong>匿名函数</strong></p>
+<ul>
+<li>lambda表达式</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def add(x,y):
+    return x+y
+print(add(1, 2))
+
+f = lambda x,y: x+y
+print(f(1,2))
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>三元表达式</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x = 2
+y = 1 
+
+r = x if x &gt; y else y
+print(r)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PS D:\py\twelve&gt; python g.py
+2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><strong>map</strong></p>
+<ul>
+<li>对于集合进行映射(即对集合中的每个元素都进行操作)</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">list_x = [1,2,3,4,5,6,7,8]
+def square(x):
+    return x*x
+r = map(square,list_x)
+print(list(r))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>map和lambda表达式</strong></p>
+<ul>
+<li>使代码更加简洁</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">list_x = [1,2,3,4,5,6,7,8]
+r = map(lambda x: x*x,list_x)
+print(list(r))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>多个参数lambda表达式配合map</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">list_x = [1,2,3,4,5,6,7,8,9]
+list_y = [1,2,3,4,5,6,7,8]
+
+r = map(lambda x,y: x*x+y ,list_x,list_y)
+print(list(r))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>map操作两个列表的数据结果取决于较短的那个列表</li>
+<li>map和lambda并不会提高运行效率，只会让代码更简洁</li>
+</ul>
+<p><strong>reduce</strong></p>
+<ul>
+<li>连续计算，连续调用lambda表达式</li>
+<li>每次调用lambda计算结果作为下一次运行的参数</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from functools import reduce
+list_x = [1,2,3,4,5,6,7,8]
+r = reduce(lambda x,y: x+y, list_x,10)
+print(r)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>filter</strong></p>
+<ul>
+<li>需要使用能表示真假的lambda表达式</li>
+<li>过滤一些你不需要的</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">list_x = [1,0,0,0,1,0]
+r = filter(lambda x: True if x==1 else False, list_x)
+print(list(r))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>装饰器</strong> </p>
+<ul>
+<li>避免对原函数的修改</li>
+<li>可以接受定义时的复杂，不能接受调用时的复杂</li>
+</ul>
+<p><strong>不用装饰器为函数添加功能</strong></p>
+<ul>
+<li>非常繁琐，需要修改原来函数的代码</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import time
+
+def f1():
+    # print(time.time())
+    print('This is a function')
+def f2():
+    # print(time.time())
+    print('This is a function')
+    
+# f1()
+def print_current_time(func):
+    print(time.time())
+    func()
+print_current_time(f1)
+print_current_time(f2)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>无@语法糖的装饰器调用</strong></p>
+<ul>
+<li>无法突出装饰器的优势</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import time
+
+def decorator(func):
+    def wrapper():
+        print(time.time())
+        func()
+    return wrapper
+
+def f1():
+    print('This is a function')
+    
+f = decorator(f1)
+f()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在调用时依然复杂</p>
+<p><strong>使用@语法糖的装饰器</strong></p>
+<ul>
+<li>添加功能时更加简洁</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import time
+def decorator(func):
+    def wrapper():
+        print(time.time())
+        func()
+    return wrapper
+@decorator
+def f1():
+    print('This is a function')
+f1()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>多个参数的函数编写装饰器</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import time
+def decorator(func):
+    def wrapper(*args):
+        #*args代表可变参数
+        print(time.time())
+        func(*args)
+    return wrapper
+@decorator
+def f1(func_name):
+    print('This is a function'+func_name)
+def f2(func_name1,func_name2):
+    print('This is a function'+func_name1)
+    print('This is a function'+func_name2)
+f1('function1')
+f2('function1', 'function2')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>带关键字参数的函数装饰器编写</strong></p>
+<ul>
+<li>关键字参数**kw的应用</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import time
+
+def decorator(func):
+    def wrapper(*args,**kw):
+        print(time.time())
+        func(*args,**kw)
+    return wrapper
+@decorator
+def f1(func_name):
+    print('This is a function'+func_name)
+@decorator
+def f2(func_name1,func_name2):
+    print('This is a function'+func_name1)
+    print('This is a function'+func_name2)
+@decorator
+def f3(func_name1,func_name2,**kw):
+    print('This is a function'+func_name1)
+    print('This is a function'+func_name2)
+    print(kw)
+    
+
+f1('function1')
+f2('function1', 'function2')
+f3('function1', 'function2',a=1,b=2,c=3)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="实战-原生爬虫"><a href="#实战-原生爬虫" class="headerlink" title="实战:原生爬虫"></a>实战:原生爬虫</h2><h2 id="Pythonic与Python杂记"><a href="#Pythonic与Python杂记" class="headerlink" title="Pythonic与Python杂记"></a>Pythonic与Python杂记</h2><p><strong>通过字典映射模拟switch语句</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">day = 2
+def get_sunday():
+    return 'Sunday'
+def get_monday():
+    return 'monday'
+def get_tuesday():
+    return 'tuesday'
+def get_default():
+    return 'default'
+switcher = {
+    0:get_sunday,
+    1:get_monday,
+    2:get_tuesday 
+}
+day_name = switcher.get(day,get_default)()
+print(day_name)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>列表推导式</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a = [1,2,3,4,5,6]
+
+b = [i*i for i in a if i&gt;=5]
+
+print(b)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>字典编写列表推导式</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">students = {
+    '喜小乐':18,
+    '石敢当':20,
+    '横小五':15
+    }
+
+b = {value:key for key,value in students.items()}
+print(b)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>可迭代对象和迭代器</strong></p>
+<ul>
+<li>迭代器一定是可迭代对象</li>
+<li>可迭代的对象不一定是迭代器</li>
+<li>迭代器可以调用next方法</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">class BookCollection():
+    def __init__(self):
+        self.data = ['《往事》','《只能》','《回味》']
+        self.cur = 0
+        
+        
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        if self.cur &gt;= len(self.data):
+            raise StopIteration()
+        r = self.data[self.cur]
+        self.cur +=1
+        return r
+    
+books = BookCollection()
+for book in books:
+    print(book)
+    
+print(next(books))
+print(next(books))
+print(next(books))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>生成器</strong></p>
+<ul>
+<li>yield关键字用于生成器</li>
+<li>不同于return，yield在返回后会继续执行代码</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">n = (i for i in range(0,1000))
+def gen(max):
+    n=0
+    while n&lt;max:
+        # print(n)
+        n+=1
+        yield n        
+g = gen(1000)
+# print(next(g))
+# print(next(g))
+# print(next(g))
+for i in g:
+    print(i)
+        <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>None</strong></p>
+<ul>
+<li>None不等于空字符串，空列表，0，False(不管是值还是类型)</li>
+</ul>
+<p><strong>对象存在并不一定是True</strong></p>
+<ul>
+<li>受内置方法<code>__bool__</code>和<code>__len__</code>影响(取决于<code>__bool__</code>的结果，并且调用了<code>__bool__</code>就不会调用<code>__len__</code>)</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">class Test():
+    def __bool__(self):
+        return True
+    def __len__(self):
+        return False
+    
+print(bool(Test()))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PS D:\py\thirteen&gt; python f.py
+True<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><strong>装饰器的副作用</strong></p>
+<ul>
+<li>添加装饰器后函数的名称会被改变</li>
+<li>要想不被改变就需要使用<code>@wraps</code>装饰器</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import time
+from functools import wraps
+
+def decorator(func):
+    @wraps(func)
+    def wrapper():
+        print(time.time())
+        func()
+    return wrapper
+@decorator
+def f1():
+    '''
+    This is f1
+    '''
+    print(f1.__name__)
+help(f1)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>海象运算符</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a = 'python'
+if (b:=len(a)) &gt; 5:
+    print('长度大于五'+'真实长度为'+str(b))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>f关键字做字符串拼接</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a = 'python'
+if (b:=len(a)) &gt; 5:
+    print(f'长度大于五真实长度为{b}')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>dataclass装饰器</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from dataclasses import dataclass
+
+@dataclass
+class Student():
+    # def __init__(self,name,age,school_name):
+    #     self.name = name
+    #     self.age = age
+    #     self.school_name = school_name
+    name:str
+    age:int
+    school_name:str
+    def test(self):
+        print(self.name)
+        
+student = Student('7yue',18,'Tsinghua')
+student.test()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
                 
             </div>
             <hr/>
@@ -1601,7 +2111,7 @@ print(r.group(1))#要匹配结果从1开始
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://formemrs-j.github.io/2021/09/12/python-pa-chong/">https://formemrs-j.github.io/2021/09/12/python-pa-chong/</a>
+                    <a href="https://formemrs-j.github.io/2021/09/12/python-bi-ji/">https://formemrs-j.github.io/2021/09/12/python-bi-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -2089,7 +2599,7 @@ print(r.group(1))#要匹配结果从1开始
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">17.9k</span>
+                        class="white-color">19.9k</span>
             
             
             
