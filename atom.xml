@@ -6,7 +6,7 @@
   <link href="https://formemrs-j.github.io/atom.xml" rel="self"/>
   
   <link href="https://formemrs-j.github.io/"/>
-  <updated>2021-12-15T08:37:22.984Z</updated>
+  <updated>2021-12-26T17:21:29.495Z</updated>
   <id>https://formemrs-j.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我的2021</title>
+    <link href="https://formemrs-j.github.io/2021/12/27/wo-de-2021/"/>
+    <id>https://formemrs-j.github.io/2021/12/27/wo-de-2021/</id>
+    <published>2021-12-26T17:20:42.000Z</published>
+    <updated>2021-12-26T17:21:29.495Z</updated>
+    
+    
+    
+    
+    <category term="daily" scheme="https://formemrs-j.github.io/categories/daily/"/>
+    
+    
+    <category term="diary" scheme="https://formemrs-j.github.io/tags/diary/"/>
+    
+  </entry>
   
   <entry>
     <title>linux下常用命令</title>
