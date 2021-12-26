@@ -40,9 +40,9 @@
 
     <script src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="WWJ's Blog" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="WWJ's Blog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -1987,37 +1987,38 @@ class Spider():
         htmls = self.__fetch_content()
         anchors = self.__analysis(htmls)
         anchors = list(self.__refine(anchors))
+        anchors = self.__sort(anchors)
         self.__show(anchors)
 
 spider = Spider()
-spider.go()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+spider.go()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>输出结果如下</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PS D:\py\fortheen&gt; python spider.py
-rank1   : 哔哩哔哩王者荣耀赛事   177.5 万
-rank2   : AG超玩会王者荣耀梦泪   107.2 万
-rank3   : 木木希超甜的   2.5 万
-rank4   : 是一只鱼啦   36.3 万
-rank5   : 忘川又下饭啦   26.6 万
-rank6   : 解说猪哼   20.3 万
-rank7   : 冷殇顶尖达摩   1.2 万
-rank8   : 鱼丸粥ovo   20.1 万
-rank9   : B站长野星河   1.2 万
-rank10   : 狂魔哥解说   14.4 万
-rank11   : 是南小生吖   14.0 万
-rank12   : Tender丶小关   13.5 万
-rank13   : 初尘国一司空   11.0 万
-rank14   : 某笑第一宫本Sun   10.9 万
-rank15   : 沐辰w   8.4 万
-rank16   : AG超玩会王者荣耀莲   8.3 万
-rank17   : 睡神不醒丶   7.7 万
-rank18   : 雨汐OvO   6.0 万
-rank19   : 熊二ccc   5.2 万
-rank20   : 笙萧Void   5.2 万
-rank21   : 是璟亦ya   5.0 万
-rank22   : 魔法猛男小豆   4.7 万
-rank23   : 野王小迪奈   4.6 万
-PS D:\py\fortheen&gt; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+rank1   : 哔哩哔哩王者荣耀赛事   176.3 万
+rank2   : AG超玩会王者荣耀梦泪   112.8 万
+rank3   : 是一只鱼啦   40.1 万
+rank4   : 忘川又下饭啦   28.7 万
+rank5   : 解说猪哼   20.8 万
+rank6   : 鱼丸粥ovo   20.2 万
+rank7   : 狂魔哥解说   15.0 万
+rank8   : 是南小生吖   14.0 万
+rank9   : Tender丶小关   13.5 万
+rank10   : 某笑第一宫本Sun   11.0 万
+rank11   : 初尘国一司空   10.9 万
+rank12   : 沐辰w   8.5 万
+rank13   : AG超玩会王者荣耀莲   8.3 万
+rank14   : 梓羽ovo   8.3 万
+rank15   : 睡神不醒丶   7.4 万
+rank16   : 雨汐OvO   6.0 万
+rank17   : 熊二ccc   5.2 万
+rank18   : 笙萧Void   5.2 万
+rank19   : 是璟亦ya   4.9 万
+rank20   : 魔法猛男小豆   4.7 万
+rank21   : 冷殇顶尖达摩   1.5 万
+rank22   : B站长野星河   1.2 万
+rank23   : 一只小云舒   1.1 万
+PS D:\py\fortheen&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="Pythonic与Python杂记"><a href="#Pythonic与Python杂记" class="headerlink" title="Pythonic与Python杂记"></a>Pythonic与Python杂记</h2><p><strong>通过字典映射模拟switch语句</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">day = 2
