@@ -427,14 +427,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-12-14
+                    2021-12-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    678
+                    1k
                 </div>
                 
 
@@ -554,6 +554,88 @@ def main_handler(event, context):
 if __name__=='__main__':
     nco()   
     push()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="cloud-Flask服务器版本"><a href="#cloud-Flask服务器版本" class="headerlink" title=":cloud:Flask服务器版本"></a><span class="github-emoji"><span>☁</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2601.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>Flask服务器版本</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">
+from flask import Flask, request
+import json
+import requests
+ 
+app = Flask(__name__)
+ 
+ 
+# 只接受POST方法访问
+@app.route("/api",methods=["POST"])
+def check():
+    # 默认返回内容
+    return_dict = {'statusCode': '200', 'message': 'successful!', 'result': False}
+    # 判断入参是否为空
+    if request.get_data() is None:
+        return_dict['statusCode'] = '5004'
+        return_dict['message'] = '请求参数为空'
+        return json.dumps(return_dict, ensure_ascii=False)
+ 
+    get_data = request.get_data()  # 获取传入的参数
+    get_data = json.loads(get_data)  # 传入的参数为bytes类型，需要转化成json
+    name = get_data.get('name')
+    psswd = get_data.get('psswd')
+ 
+    return_dict['result'] = tt(name, psswd)  # 对参数进行操作
+    return json.dumps(return_dict, ensure_ascii=False)
+ 
+ 
+# 功能函数
+def tt(name, psswd):
+    LOGIN_URL = 'https://nco.zjgsu.edu.cn/login'
+    SUBMIT_URL='https://nco.zjgsu.edu.cn/'
+    LOGIN_HEADER={
+    "User-Agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/93.0.4577.82",
+    'Content-Type': 'application/x-www-form-urlencoded'
+    }
+    LOGIN_BODY={
+    "name":name,
+    "psswd":psswd
+    }
+    SUBMIT_BODY={
+        'uuid':'a59e0ac8-da06-4fb1-83d8-000976c317a9',
+        'locationInfo': '浙江省',
+        'currentResd': '浙江省杭州市江干区浙江工商大学钱江湾生活园区',
+        'fromHbToZjDate': '',
+        'fromHbToZj': 'C',
+        'fromWtToHzDate': '',
+        'fromWtToHz': 'B',
+        'meetDate': '',
+        'meetCase': 'C',
+        'travelDate': '',
+        'travelCase': 'D',
+        'medObsvReason': '',
+        'medObsv': 'B',
+        'belowCaseDesc': '',
+        'belowCase': 'D',
+        'temperature': '',
+        'notApplyReason': '',
+        'hzQRCode': 'A',
+        'specialDesc': ''
+    }
+    response=requests.post(url=LOGIN_URL,headers=LOGIN_HEADER,data=LOGIN_BODY)
+    cookies = response.cookies
+    submit_response=requests.post(SUBMIT_URL,headers=LOGIN_HEADER,cookies=cookies,data=SUBMIT_BODY)
+    submit_response_str=submit_response.text
+    if '报送成功' in submit_response_str:
+        result_str = '填报成功啦'
+    # elif '当天只能申报一次'in submit_response_str:
+    #     result_str = '当天已填报'
+    # # result_str = "返回cookie为%s" % (cookies)
+    # elif '未填报' in submit_response_str:
+    #     result_str = '当天未填报'
+    else:
+        result_str = '出现错误啦'
+    return result_str
+ 
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0',debug=True)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 
 <h2 id="cloud-腾讯云函数配置"><a href="#cloud-腾讯云函数配置" class="headerlink" title=":cloud:腾讯云函数配置"></a><span class="github-emoji"><span>☁</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2601.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>腾讯云函数配置</h2><ul>
 <li><p>打开云函数官网<a target="_blank" rel="noopener" href="https://console.cloud.tencent.com/scf/list?rid=1&amp;ns=default">云函数官网-函数服务 - Serverless - 控制台 (tencent.com)</a></p>
