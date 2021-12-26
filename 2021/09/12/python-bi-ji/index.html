@@ -42,8 +42,8 @@
 
 <meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="WWJ's Blog" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="WWJ's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -434,7 +434,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.9k
+                    8.4k
                 </div>
                 
 
@@ -1932,7 +1932,94 @@ f1('function1')
 f2('function1', 'function2')
 f3('function1', 'function2',a=1,b=2,c=3)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="实战-原生爬虫"><a href="#实战-原生爬虫" class="headerlink" title="实战:原生爬虫"></a>实战:原生爬虫</h2><h2 id="Pythonic与Python杂记"><a href="#Pythonic与Python杂记" class="headerlink" title="Pythonic与Python杂记"></a>Pythonic与Python杂记</h2><p><strong>通过字典映射模拟switch语句</strong></p>
+<h2 id="实战-原生爬虫"><a href="#实战-原生爬虫" class="headerlink" title="实战:原生爬虫"></a>实战:原生爬虫</h2><p><strong>目标爬取哔哩哔哩王者荣耀直播区的排行</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from urllib import request
+import re
+class Spider():
+    url = 'https://live.bilibili.com/p/eden/area-tags?parentAreaId=3&amp;areaId=35'
+    name_pattern = r'&lt;div class="Item_QAOnosoB"&gt;([\s\S]*?)&lt;/div&gt;'
+    # root_number_pattern = r'&lt;div class="Item_3Iz_3buh.*?&gt;([\s\S]*?)&lt;/div&gt;'
+    # name_pattern = r'&lt;div class="Item_QAOnosoB"&gt;[\s\S]*?'
+    number_pattern = r'&lt;/i&gt;.*?&lt;span&gt;([\s\S]*?)&lt;/span&gt;'
+    
+    def __fetch_content(self):
+        r = request.urlopen(Spider.url)
+        htmls = r.read()
+        htmls = str(htmls,encoding='utf-8')
+        a = 1
+        return htmls
+        
+    def __analysis(self,htmls):
+        anchors = []
+        # for name in htmls:
+        name_html = re.findall(Spider.name_pattern, htmls)
+        number_html = re.findall(Spider.number_pattern, htmls)
+        # print(number_html[0])
+        for name,number in zip(name_html,number_html):
+            anchor = {'name':name,'number':number}
+            anchors.append(anchor)
+        # print(anchors)
+        return anchors
+            
+    def __refine(self,anchors):
+        l = lambda anchor: {
+            'name':anchor['name'].strip(),
+            'number':anchor['number']
+            }
+        return map(l,anchors)
+    
+    def __sort(self,anchors):
+        anchors = sorted(anchors,key=self.__sort__seed,reverse=True)
+        return anchors
+        
+    def __sort__seed(self,anchor):
+        r = re.findall('[1-9]\d*\.?\d*', anchor['number'])
+        number = float(r[0])
+        if '万' in anchor['number']:
+            number *=10000
+        return number
+    def __show(self,anchors):
+        for rank in range(0,len(anchors)):
+            print('rank'+str(rank+1)
+            +'   : '+anchors[rank]['name']
+            +'   '+anchors[rank]['number'])
+    def go(self):
+        htmls = self.__fetch_content()
+        anchors = self.__analysis(htmls)
+        anchors = list(self.__refine(anchors))
+        self.__show(anchors)
+
+spider = Spider()
+spider.go()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输出结果如下</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PS D:\py\fortheen&gt; python spider.py
+rank1   : 哔哩哔哩王者荣耀赛事   177.5 万
+rank2   : AG超玩会王者荣耀梦泪   107.2 万
+rank3   : 木木希超甜的   2.5 万
+rank4   : 是一只鱼啦   36.3 万
+rank5   : 忘川又下饭啦   26.6 万
+rank6   : 解说猪哼   20.3 万
+rank7   : 冷殇顶尖达摩   1.2 万
+rank8   : 鱼丸粥ovo   20.1 万
+rank9   : B站长野星河   1.2 万
+rank10   : 狂魔哥解说   14.4 万
+rank11   : 是南小生吖   14.0 万
+rank12   : Tender丶小关   13.5 万
+rank13   : 初尘国一司空   11.0 万
+rank14   : 某笑第一宫本Sun   10.9 万
+rank15   : 沐辰w   8.4 万
+rank16   : AG超玩会王者荣耀莲   8.3 万
+rank17   : 睡神不醒丶   7.7 万
+rank18   : 雨汐OvO   6.0 万
+rank19   : 熊二ccc   5.2 万
+rank20   : 笙萧Void   5.2 万
+rank21   : 是璟亦ya   5.0 万
+rank22   : 魔法猛男小豆   4.7 万
+rank23   : 野王小迪奈   4.6 万
+PS D:\py\fortheen&gt; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Pythonic与Python杂记"><a href="#Pythonic与Python杂记" class="headerlink" title="Pythonic与Python杂记"></a>Pythonic与Python杂记</h2><p><strong>通过字典映射模拟switch语句</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">day = 2
 def get_sunday():
     return 'Sunday'
@@ -2599,7 +2686,7 @@ student.test()<span aria-hidden="true" class="line-numbers-rows"><span></span><s
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">19.9k</span>
+                        class="white-color">20.4k</span>
             
             
             
