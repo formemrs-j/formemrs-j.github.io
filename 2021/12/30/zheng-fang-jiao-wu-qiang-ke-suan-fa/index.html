@@ -1,0 +1,1814 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="正方教务抢课算法, HTML,CSS,Python,Java,JavaScript,JQuery,React,Vue.js等">
+    <meta name="description" content="Demonstrate the temperature of technology">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FSCMHM3MSR"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-FSCMHM3MSR');
+</script>
+
+
+    <title>正方教务抢课算法 | WWJ&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="WWJ's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/logo.gif" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">WWJ&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/logo.gif" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">WWJ&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            Demonstrate the temperature of technology
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/featureimages/0.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">正方教务抢课算法</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%88%AC%E8%99%AB/">
+                                <span class="chip bg-color">爬虫</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/python/" class="post-category">
+                                python
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-12-30
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-12-30
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.9k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="0X01前言"><a href="#0X01前言" class="headerlink" title="0X01前言"></a>0X01前言</h1><h2 id="balloon-缘由"><a href="#balloon-缘由" class="headerlink" title=":balloon: 缘由"></a><span class="github-emoji"><span>🎈</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f388.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 缘由</h2><p>本学期选课已经开始，为了防止一轮选课落选，同时巩固一下爬虫知识，分析一下选课的机制，仅供学习不提供成品，学校人才多，容易被举报。</p>
+<h2 id="mag-分析"><a href="#mag-分析" class="headerlink" title=":mag: 分析"></a><span class="github-emoji"><span>🔍</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f50d.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 分析</h2><p>打开学校选课的网址，打开开发者工具，随便选一个课看一看发包情况</p>
+<img src="https://gitee.com/wwj1026/image/raw/master/20211230/!A@04Sn*DVpA.png" style="zoom:50%;">
+
+<p>只有一条请求，我们点进去查看一下提交的form表单</p>
+<img src="https://gitee.com/wwj1026/image/raw/master/20211230/ABuxYkQrP5Xf.png" style="zoom:50%;">
+
+<p>参数有一点点多……，但是根据之前写过的经验还是大题可以猜出来的</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jxb_ids:  #这是最关键的参数 一轮选课和二轮选课是不一样的
+kcmc: (GENNET032)机器的征途：空天科技 - 1.0 学分 #课程名称 一轮二轮不变 写死
+rwlx: 2  #不变写死
+rlzlkz: 0
+sxbj: 0
+xxkbj: 0
+qz: 0
+cxbj: 0
+xkkz_id: D3B2C92D3A1E8C80E053CA8AA8C0B6F6  #不变可以写死
+njdm_id: 2020    #年级代码？？
+kklxdm: 10		#数字对应选课的类型
+xklc: 1          #二轮选课要把1改成2
+xkxnm: 2021		#选课学年名，最好从网页获取 不变
+xkxqm: 12       #学期名   正方的算法 第一学期是3  第二学期是12 第三学期是16<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>所以我们要确定的动态参数只有,<code>jxb_ids</code>,<code>kckc</code>,<code>xkkz_id</code>,<code>njdm_id</code>,<code>kklxdm</code>,<code>xkxnm</code>这六个参数，其他都可以写死</p>
+<p>我们先来确定一下，<code>jxb_ids</code>来自哪，在选课界面，随便点击一个类型，看一下发包，发现发了很多个请求，逐一查看后，我们还发现一个有意思的东西，就是正方的请求参数都是中文缩写，很难猜它的涵义，但是在请求的<code>js</code>文件里，居然就有各个参数的含义……,我们把它们都拷贝下来</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">;</span>
+<span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">$</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	$<span class="token punctuation">.</span>i18n<span class="token punctuation">.</span>jwglxt <span class="token operator">=</span> $<span class="token punctuation">.</span>i18n<span class="token punctuation">.</span>jwglxt <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+	$<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span>
+			$<span class="token punctuation">.</span>i18n<span class="token punctuation">.</span>jwglxt<span class="token punctuation">,</span>
+			<span class="token punctuation">{</span>
+				<span class="token string">'ck'</span> <span class="token operator">:</span> <span class="token string">'查看'</span><span class="token punctuation">,</span>
+				<span class="token string">'qb'</span> <span class="token operator">:</span> <span class="token string">'全部'</span><span class="token punctuation">,</span>
+				<span class="token string">'dm'</span> <span class="token operator">:</span> <span class="token string">'代码'</span><span class="token punctuation">,</span>
+				<span class="token string">'mc'</span> <span class="token operator">:</span> <span class="token string">'名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'sure'</span> <span class="token operator">:</span> <span class="token string">'确定'</span><span class="token punctuation">,</span>
+				<span class="token string">'cancel'</span> <span class="token operator">:</span> <span class="token string">'取消'</span><span class="token punctuation">,</span>
+				<span class="token string">'customize'</span> <span class="token operator">:</span> <span class="token string">'自定义'</span><span class="token punctuation">,</span>
+				<span class="token string">'back'</span> <span class="token operator">:</span> <span class="token string">'返回'</span><span class="token punctuation">,</span>
+				<span class="token string">'ordinal'</span> <span class="token operator">:</span> <span class="token string">'序号'</span><span class="token punctuation">,</span>
+				<span class="token string">'mark'</span> <span class="token operator">:</span> <span class="token string">'备注'</span><span class="token punctuation">,</span>
+				<span class="token string">'top'</span> <span class="token operator">:</span> <span class="token string">'置顶'</span><span class="token punctuation">,</span>
+				<span class="token string">'choose'</span> <span class="token operator">:</span> <span class="token string">'请选择'</span><span class="token punctuation">,</span>
+				<span class="token string">'query'</span> <span class="token operator">:</span> <span class="token string">'查询'</span><span class="token punctuation">,</span>
+				<span class="token string">'search'</span> <span class="token operator">:</span> <span class="token string">'查 询'</span><span class="token punctuation">,</span>
+				<span class="token string">'teacher'</span> <span class="token operator">:</span> <span class="token string">'教师'</span><span class="token punctuation">,</span>
+				<span class="token string">'locked'</span> <span class="token operator">:</span> <span class="token string">'锁定'</span><span class="token punctuation">,</span>
+				<span class="token string">'outexcel'</span> <span class="token operator">:</span> <span class="token string">'输出EXCEL'</span><span class="token punctuation">,</span>
+				<span class="token string">'outpdf'</span> <span class="token operator">:</span> <span class="token string">'输出PDF'</span><span class="token punctuation">,</span>
+				<span class="token string">'table'</span> <span class="token operator">:</span> <span class="token string">'表格'</span><span class="token punctuation">,</span>
+				<span class="token string">'list'</span> <span class="token operator">:</span> <span class="token string">'列表'</span><span class="token punctuation">,</span>
+				<span class="token string">'select'</span> <span class="token operator">:</span> <span class="token string">'选择'</span><span class="token punctuation">,</span>
+				<span class="token string">'xn'</span> <span class="token operator">:</span> <span class="token string">'学年'</span><span class="token punctuation">,</span>
+				<span class="token string">'xnmmc'</span> <span class="token operator">:</span> <span class="token string">'学年'</span><span class="token punctuation">,</span>
+				<span class="token string">'jyxdxn'</span> <span class="token operator">:</span> <span class="token string">'建议修读学年'</span><span class="token punctuation">,</span>
+				<span class="token string">'xq'</span> <span class="token operator">:</span> <span class="token string">'学期'</span><span class="token punctuation">,</span>
+				<span class="token string">'xqmmc'</span> <span class="token operator">:</span> <span class="token string">'学期'</span><span class="token punctuation">,</span>
+				<span class="token string">'jyxdxq'</span> <span class="token operator">:</span> <span class="token string">'建议修读学期'</span><span class="token punctuation">,</span>
+				<span class="token string">'njmc'</span> <span class="token operator">:</span> <span class="token string">'年级'</span><span class="token punctuation">,</span>
+				<span class="token string">'njDm'</span> <span class="token operator">:</span> <span class="token string">'年级代码'</span><span class="token punctuation">,</span>
+				<span class="token string">'njMc'</span> <span class="token operator">:</span> <span class="token string">'年级名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'xxxq'</span> <span class="token operator">:</span> <span class="token string">'校区'</span><span class="token punctuation">,</span>
+				<span class="token string">'xxxqH'</span> <span class="token operator">:</span> <span class="token string">'校区号'</span><span class="token punctuation">,</span>
+				<span class="token string">'xxxqDm'</span> <span class="token operator">:</span> <span class="token string">'校区代码'</span><span class="token punctuation">,</span>
+				<span class="token string">'xxxqMc'</span> <span class="token operator">:</span> <span class="token string">'校区名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'xymc'</span> <span class="token operator">:</span> <span class="token string">'学院'</span><span class="token punctuation">,</span>
+				<span class="token string">'xyDm'</span> <span class="token operator">:</span> <span class="token string">'学院代码'</span><span class="token punctuation">,</span>
+				<span class="token string">'xyMc'</span> <span class="token operator">:</span> <span class="token string">'学院名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'ssXy'</span> <span class="token operator">:</span> <span class="token string">'所属学院'</span><span class="token punctuation">,</span>
+				<span class="token string">'ssXydm'</span> <span class="token operator">:</span> <span class="token string">'所属学院代码'</span><span class="token punctuation">,</span>
+				<span class="token string">'ssXymc'</span> <span class="token operator">:</span> <span class="token string">'所属学院名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'jg'</span> <span class="token operator">:</span> <span class="token string">'机构'</span><span class="token punctuation">,</span>
+				<span class="token string">'jgDm'</span> <span class="token operator">:</span> <span class="token string">'机构代码'</span><span class="token punctuation">,</span>
+				<span class="token string">'jgMc'</span> <span class="token operator">:</span> <span class="token string">'机构名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'ssJg'</span> <span class="token operator">:</span> <span class="token string">'所属机构'</span><span class="token punctuation">,</span>
+				<span class="token string">'ssJgdm'</span> <span class="token operator">:</span> <span class="token string">'所属机构代码'</span><span class="token punctuation">,</span>
+				<span class="token string">'ssJgmc'</span> <span class="token operator">:</span> <span class="token string">'所属机构名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'kkbmmc'</span> <span class="token operator">:</span> <span class="token string">'开课部门'</span><span class="token punctuation">,</span>
+				<span class="token string">'kkxymc'</span> <span class="token operator">:</span> <span class="token string">'开课学院'</span><span class="token punctuation">,</span><span class="token comment">//上海交大叫：“管理学院”</span>
+				<span class="token string">'glxy'</span> <span class="token operator">:</span> <span class="token string">'管理学院'</span><span class="token punctuation">,</span>
+				<span class="token string">'glxyDm'</span> <span class="token operator">:</span> <span class="token string">'管理学院代码'</span><span class="token punctuation">,</span>
+				<span class="token string">'glxyMc'</span> <span class="token operator">:</span> <span class="token string">'管理学院名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'jgmc'</span> <span class="token operator">:</span> <span class="token string">'学院'</span><span class="token punctuation">,</span>
+				<span class="token string">'zymc'</span> <span class="token operator">:</span> <span class="token string">'专业'</span><span class="token punctuation">,</span>
+				<span class="token string">'zyDm'</span> <span class="token operator">:</span> <span class="token string">'专业代码'</span><span class="token punctuation">,</span>
+				<span class="token string">'zyMc'</span> <span class="token operator">:</span> <span class="token string">'专业名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'ssZy'</span> <span class="token operator">:</span> <span class="token string">'所属专业'</span><span class="token punctuation">,</span>
+				<span class="token string">'ssZydm'</span> <span class="token operator">:</span> <span class="token string">'所属专业代码'</span><span class="token punctuation">,</span>
+				<span class="token string">'ssZymc'</span> <span class="token operator">:</span> <span class="token string">'所属专业名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'bj'</span> <span class="token operator">:</span> <span class="token string">'班级'</span><span class="token punctuation">,</span>
+				<span class="token string">'bh'</span> <span class="token operator">:</span> <span class="token string">'班号'</span><span class="token punctuation">,</span>
+				<span class="token string">'bjDm'</span> <span class="token operator">:</span> <span class="token string">'班级代码'</span><span class="token punctuation">,</span>
+				<span class="token string">'bjMc'</span> <span class="token operator">:</span> <span class="token string">'班级名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'xh'</span> <span class="token operator">:</span> <span class="token string">'学号'</span><span class="token punctuation">,</span>
+				<span class="token string">'xslb'</span> <span class="token operator">:</span> <span class="token string">'学生类别'</span><span class="token punctuation">,</span>
+				<span class="token string">'sfzx'</span> <span class="token operator">:</span> <span class="token string">'是否在校'</span><span class="token punctuation">,</span>
+				<span class="token string">'xjzt'</span> <span class="token operator">:</span> <span class="token string">'学籍状态'</span><span class="token punctuation">,</span>
+				<span class="token string">'xm'</span> <span class="token operator">:</span> <span class="token string">'姓名'</span><span class="token punctuation">,</span>
+				<span class="token string">'xb'</span> <span class="token operator">:</span> <span class="token string">'性别'</span><span class="token punctuation">,</span>
+				<span class="token string">'jgh'</span> <span class="token operator">:</span> <span class="token string">'教工号'</span><span class="token punctuation">,</span>
+				<span class="token string">'kcmc'</span> <span class="token operator">:</span> <span class="token string">'课程'</span><span class="token punctuation">,</span>
+				<span class="token string">'kcMc'</span> <span class="token operator">:</span> <span class="token string">'课程名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'kcxzmc'</span> <span class="token operator">:</span> <span class="token string">'课程性质'</span><span class="token punctuation">,</span>
+				<span class="token string">'kclb'</span> <span class="token operator">:</span> <span class="token string">'课程类别'</span><span class="token punctuation">,</span>
+				<span class="token string">'kcgs'</span> <span class="token operator">:</span> <span class="token string">'课程归属'</span><span class="token punctuation">,</span>
+				<span class="token string">'sfsjk'</span> <span class="token operator">:</span> <span class="token string">'是否实践课'</span><span class="token punctuation">,</span>
+				<span class="token string">'jxbmc'</span> <span class="token operator">:</span> <span class="token string">'教学班名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'rs'</span> <span class="token operator">:</span> <span class="token string">'人数'</span><span class="token punctuation">,</span>
+				<span class="token string">'kczmc'</span> <span class="token operator">:</span> <span class="token string">'课程组名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'kklx'</span> <span class="token operator">:</span> <span class="token string">'开课类型'</span><span class="token punctuation">,</span>
+				<span class="token string">'kcs'</span> <span class="token operator">:</span> <span class="token string">'课程数'</span><span class="token punctuation">,</span>
+				<span class="token string">'sksj'</span> <span class="token operator">:</span> <span class="token string">'上课时间'</span><span class="token punctuation">,</span>
+				<span class="token string">'jxdd'</span> <span class="token operator">:</span> <span class="token string">'上课地点'</span><span class="token punctuation">,</span>
+				<span class="token string">'jxbzc'</span> <span class="token operator">:</span> <span class="token string">'教学班组成'</span><span class="token punctuation">,</span>
+				<span class="token string">'kcxx'</span> <span class="token operator">:</span> <span class="token string">'课程信息'</span><span class="token punctuation">,</span>
+				<span class="token string">'jxbxx'</span> <span class="token operator">:</span> <span class="token string">'教学班信息'</span><span class="token punctuation">,</span> 
+				<span class="token string">'xsxx'</span> <span class="token operator">:</span> <span class="token string">'学生信息'</span><span class="token punctuation">,</span>
+				<span class="token string">'btn_colse'</span> <span class="token operator">:</span> <span class="token string">'关 闭'</span><span class="token punctuation">,</span>
+				<span class="token string">'btn_bccg'</span> <span class="token operator">:</span> <span class="token string">'保存草稿'</span><span class="token punctuation">,</span>
+				<span class="token string">'btn_tjsq'</span> <span class="token operator">:</span> <span class="token string">'提交申请'</span><span class="token punctuation">,</span>
+				<span class="token string">'needCondition'</span> <span class="token operator">:</span> <span class="token string">'请选择筛选条件!'</span><span class="token punctuation">,</span>
+				<span class="token string">'emptyRecord'</span> <span class="token operator">:</span> <span class="token string">'没有符合条件记录!'</span><span class="token punctuation">,</span>
+				<span class="token string">'unauthorized'</span> <span class="token operator">:</span> <span class="token string">'当前功能您没有按钮操作权限!'</span><span class="token punctuation">,</span>
+				<span class="token string">'atleastone'</span> <span class="token operator">:</span> <span class="token string">'请选定一条记录!'</span><span class="token punctuation">,</span>
+				<span class="token string">'cz'</span> <span class="token operator">:</span> <span class="token string">'操作'</span><span class="token punctuation">,</span>
+				<span class="token string">'xqmc'</span> <span class="token operator">:</span> <span class="token string">'校区'</span><span class="token punctuation">,</span>
+				<span class="token string">'tklxmc'</span> <span class="token operator">:</span> <span class="token string">'调课类型'</span><span class="token punctuation">,</span>
+				<span class="token string">'yylb'</span> <span class="token operator">:</span> <span class="token string">'原因类别'</span><span class="token punctuation">,</span>
+				<span class="token string">'tkyy'</span> <span class="token operator">:</span> <span class="token string">'调动原因'</span><span class="token punctuation">,</span>
+				<span class="token string">'tksm'</span> <span class="token operator">:</span> <span class="token string">'备注说明'</span><span class="token punctuation">,</span>
+				<span class="token string">'ctzt '</span> <span class="token operator">:</span> <span class="token string">'冲突情况'</span><span class="token punctuation">,</span>	        
+				<span class="token string">'yjsxm'</span> <span class="token operator">:</span> <span class="token string">'原教师'</span><span class="token punctuation">,</span>	
+				<span class="token string">'ycdmc'</span> <span class="token operator">:</span> <span class="token string">'原教室'</span><span class="token punctuation">,</span>	
+				<span class="token string">'yzcd'</span> <span class="token operator">:</span> <span class="token string">'原周次'</span><span class="token punctuation">,</span>	
+				<span class="token string">'yxqj'</span> <span class="token operator">:</span> <span class="token string">'原星期'</span><span class="token punctuation">,</span>	
+				<span class="token string">'yjc'</span> <span class="token operator">:</span> <span class="token string">'原节次'</span><span class="token punctuation">,</span>	
+				<span class="token string">'jc'</span> <span class="token operator">:</span> <span class="token string">'节次'</span><span class="token punctuation">,</span>		
+				<span class="token string">'kyzs'</span>   <span class="token operator">:</span> <span class="token string">'空余周数'</span><span class="token punctuation">,</span>
+				<span class="token string">'zzs'</span>   <span class="token operator">:</span> <span class="token string">'总周数'</span><span class="token punctuation">,</span>	
+				<span class="token string">'xjsxm'</span> <span class="token operator">:</span> <span class="token string">'现教师'</span><span class="token punctuation">,</span>
+				<span class="token string">'xcdmc'</span> <span class="token operator">:</span> <span class="token string">'现教室'</span><span class="token punctuation">,</span>
+				<span class="token string">'xzcd'</span> <span class="token operator">:</span> <span class="token string">'现周次'</span><span class="token punctuation">,</span>
+				<span class="token string">'xxqj'</span> <span class="token operator">:</span> <span class="token string">'现星期'</span><span class="token punctuation">,</span>
+				<span class="token string">'xjc'</span> <span class="token operator">:</span> <span class="token string">'现节次 '</span><span class="token punctuation">,</span>
+				<span class="token string">'kkxy'</span> <span class="token operator">:</span> <span class="token string">'开课学院'</span><span class="token punctuation">,</span>  
+				<span class="token string">'jsxm'</span> <span class="token operator">:</span> <span class="token string">'教师 '</span><span class="token punctuation">,</span>
+				<span class="token string">'zc'</span> <span class="token operator">:</span> <span class="token string">'起始/结束周'</span><span class="token punctuation">,</span>
+				<span class="token string">'zxs'</span> <span class="token operator">:</span> <span class="token string">'总学时'</span><span class="token punctuation">,</span>
+				<span class="token string">'mzxs'</span> <span class="token operator">:</span> <span class="token string">'周学时'</span><span class="token punctuation">,</span>
+				<span class="token string">'rlzt'</span> <span class="token operator">:</span> <span class="token string">'状态'</span><span class="token punctuation">,</span>
+				<span class="token string">'lcgz'</span> <span class="token operator">:</span> <span class="token string">'流程跟踪'</span><span class="token punctuation">,</span>
+				<span class="token string">'czmc'</span> <span class="token operator">:</span> <span class="token string">'操作'</span><span class="token punctuation">,</span>
+				<span class="token string">'szx'</span> <span class="token operator">:</span> <span class="token string">'设置项'</span><span class="token punctuation">,</span>
+				<span class="token string">'sqjg'</span> <span class="token operator">:</span> <span class="token string">'申请结果'</span><span class="token punctuation">,</span>
+				<span class="token string">'shzt'</span> <span class="token operator">:</span> <span class="token string">'审核状态'</span><span class="token punctuation">,</span>
+				<span class="token string">'sqzt'</span> <span class="token operator">:</span> <span class="token string">'申请状态'</span><span class="token punctuation">,</span>
+				<span class="token string">'sqtjsj'</span> <span class="token operator">:</span> <span class="token string">'申请时间'</span><span class="token punctuation">,</span>
+				<span class="token string">'shzt_all'</span> <span class="token operator">:</span> <span class="token string">'1:待审核;2:审核中;3:已通过;4:退回;5:不通过'</span><span class="token punctuation">,</span>
+				<span class="token string">'sqzt_all'</span> <span class="token operator">:</span> <span class="token string">'1:提交;0:保存'</span><span class="token punctuation">,</span>
+				<span class="token string">'waitting'</span> <span class="token operator">:</span> <span class="token string">'待审核'</span><span class="token punctuation">,</span>
+				<span class="token string">'auditting'</span> <span class="token operator">:</span> <span class="token string">'审核中'</span><span class="token punctuation">,</span>
+				<span class="token string">'pass'</span> <span class="token operator">:</span> <span class="token string">'已通过'</span><span class="token punctuation">,</span>
+				<span class="token string">'return'</span> <span class="token operator">:</span> <span class="token string">'退回'</span><span class="token punctuation">,</span>
+				<span class="token string">'fail'</span> <span class="token operator">:</span> <span class="token string">'不通过'</span><span class="token punctuation">,</span>
+				<span class="token string">'input'</span> <span class="token operator">:</span> <span class="token string">'录入'</span><span class="token punctuation">,</span>
+				<span class="token string">'save'</span> <span class="token operator">:</span> <span class="token string">'保存'</span><span class="token punctuation">,</span>
+				<span class="token string">'submit'</span> <span class="token operator">:</span> <span class="token string">'提交'</span><span class="token punctuation">,</span>
+				<span class="token string">'xzjl'</span> <span class="token operator">:</span> <span class="token string">'请选定一条记录!'</span><span class="token punctuation">,</span>
+				<span class="token string">'bncx'</span> <span class="token operator">:</span> <span class="token string">'流程已结束，不能撤销！'</span><span class="token punctuation">,</span>
+				<span class="token string">'cxsq'</span> <span class="token operator">:</span> <span class="token string">'您确定要撤销该申请吗？'</span><span class="token punctuation">,</span>
+				<span class="token string">'success'</span> <span class="token operator">:</span> <span class="token string">'成功'</span><span class="token punctuation">,</span>
+				<span class="token string">'fail'</span> <span class="token operator">:</span> <span class="token string">'失败'</span><span class="token punctuation">,</span>
+				<span class="token string">'apply'</span> <span class="token operator">:</span> <span class="token string">'申请'</span><span class="token punctuation">,</span>
+				<span class="token string">'add'</span> <span class="token operator">:</span> <span class="token string">'增加'</span><span class="token punctuation">,</span>
+				<span class="token string">'modify'</span> <span class="token operator">:</span> <span class="token string">'修改'</span><span class="token punctuation">,</span>
+				<span class="token string">'delete'</span> <span class="token operator">:</span> <span class="token string">'删除'</span><span class="token punctuation">,</span>
+				<span class="token string">'jstbg'</span>	<span class="token operator">:</span> <span class="token string">'结束[不通过]'</span><span class="token punctuation">,</span>
+				<span class="token string">'shz'</span>	<span class="token operator">:</span> <span class="token string">'审核中'</span><span class="token punctuation">,</span>
+				<span class="token string">'jstg'</span>	<span class="token operator">:</span> <span class="token string">'结束[通过]'</span><span class="token punctuation">,</span>
+				<span class="token string">'kcdm'</span> <span class="token operator">:</span> <span class="token string">'课程代码'</span><span class="token punctuation">,</span>
+				<span class="token string">'kch'</span> <span class="token operator">:</span> <span class="token string">'课程号'</span><span class="token punctuation">,</span>
+				<span class="token string">'xf'</span> <span class="token operator">:</span> <span class="token string">'学分'</span><span class="token punctuation">,</span>
+				<span class="token string">'WdatePicker'</span> <span class="token operator">:</span> <span class="token string">'zh-cn'</span><span class="token punctuation">,</span>
+				<span class="token string">'sksj'</span> <span class="token operator">:</span> <span class="token string">'上课时间'</span><span class="token punctuation">,</span>
+				<span class="token string">'jxdd'</span> <span class="token operator">:</span> <span class="token string">'教学地点'</span><span class="token punctuation">,</span>
+				<span class="token string">'ksdd'</span> <span class="token operator">:</span> <span class="token string">'考试地点'</span><span class="token punctuation">,</span>
+				<span class="token string">'ksrq'</span> <span class="token operator">:</span> <span class="token string">'考试日期'</span><span class="token punctuation">,</span>
+				<span class="token string">'ksmc'</span> <span class="token operator">:</span> <span class="token string">'考试名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'ksxz'</span> <span class="token operator">:</span> <span class="token string">'考试性质'</span><span class="token punctuation">,</span>
+				<span class="token string">'ksxs'</span> <span class="token operator">:</span> <span class="token string">'考试形式'</span><span class="token punctuation">,</span>
+				<span class="token string">'ksmcsm'</span> <span class="token operator">:</span> <span class="token string">'考试名称说明'</span><span class="token punctuation">,</span>
+				<span class="token string">'cxbj'</span> <span class="token operator">:</span> <span class="token string">'重修标记'</span><span class="token punctuation">,</span>
+				<span class="token string">'zxbj'</span> <span class="token operator">:</span> <span class="token string">'自修标记'</span><span class="token punctuation">,</span>
+				<span class="token string">'kssj'</span> <span class="token operator">:</span> <span class="token string">'考试时间'</span><span class="token punctuation">,</span>
+				<span class="token string">'ksxqmc'</span> <span class="token operator">:</span> <span class="token string">'考试校区'</span><span class="token punctuation">,</span>
+				<span class="token string">'sjbh'</span> <span class="token operator">:</span> <span class="token string">'试卷编号'</span><span class="token punctuation">,</span>
+				<span class="token string">'zwh'</span> <span class="token operator">:</span> <span class="token string">'考试座号'</span><span class="token punctuation">,</span>
+				<span class="token string">'yjjscdlbmc'</span> <span class="token operator">:</span> <span class="token string">'一级教室场地类别名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'ejjscdlbmc'</span> <span class="token operator">:</span> <span class="token string">'二级教室场地类别名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'njxy'</span> <span class="token operator">:</span> <span class="token string">'年级学院'</span><span class="token punctuation">,</span>
+				<span class="token string">'njzy'</span> <span class="token operator">:</span> <span class="token string">'年级专业'</span><span class="token punctuation">,</span>
+				<span class="token string">'zyfx'</span> <span class="token operator">:</span> <span class="token string">'专业方向'</span><span class="token punctuation">,</span>
+				<span class="token string">'zyfxDm'</span> <span class="token operator">:</span> <span class="token string">'专业方向代码'</span><span class="token punctuation">,</span>
+				<span class="token string">'zyfxMc'</span> <span class="token operator">:</span> <span class="token string">'专业方向名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'zyfxYwm'</span> <span class="token operator">:</span> <span class="token string">'专业方向英文名'</span><span class="token punctuation">,</span>
+				<span class="token string">'zyfxYwsx'</span> <span class="token operator">:</span> <span class="token string">'专业方向英文缩写'</span><span class="token punctuation">,</span>
+				<span class="token string">'dlDm'</span> <span class="token operator">:</span> <span class="token string">'大类代码'</span><span class="token punctuation">,</span>
+				<span class="token string">'dlMc'</span> <span class="token operator">:</span> <span class="token string">'大类名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'jsmc'</span> <span class="token operator">:</span> <span class="token string">'角色名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'jsjb'</span> <span class="token operator">:</span> <span class="token string">'角色级别'</span><span class="token punctuation">,</span>
+				<span class="token string">'jslx'</span> <span class="token operator">:</span> <span class="token string">'角色类型'</span><span class="token punctuation">,</span>
+				<span class="token string">'yhs'</span> <span class="token operator">:</span> <span class="token string">'用户数'</span><span class="token punctuation">,</span>
+				<span class="token string">'xtmr'</span> <span class="token operator">:</span> <span class="token string">'系统默认'</span><span class="token punctuation">,</span>
+				<span class="token string">'jssm'</span> <span class="token operator">:</span> <span class="token string">'角色说明'</span><span class="token punctuation">,</span>
+				<span class="token string">'cdbh'</span> <span class="token operator">:</span> <span class="token string">'场地编号'</span><span class="token punctuation">,</span>
+				<span class="token string">'cdmc'</span> <span class="token operator">:</span> <span class="token string">'场地名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'jxlmc'</span> <span class="token operator">:</span> <span class="token string">'教学楼名称'</span><span class="token punctuation">,</span>
+				<span class="token string">'yhm'</span> <span class="token operator">:</span> <span class="token string">'用户名'</span><span class="token punctuation">,</span>
+				<span class="token string">'lxdh'</span> <span class="token operator">:</span> <span class="token string">'联系电话'</span><span class="token punctuation">,</span>
+				<span class="token string">'yx'</span> <span class="token operator">:</span> <span class="token string">'邮箱'</span><span class="token punctuation">,</span>
+				<span class="token string">'sfqy'</span> <span class="token operator">:</span> <span class="token string">'是否启用'</span><span class="token punctuation">,</span>
+				<span class="token string">'hkbj'</span><span class="token operator">:</span><span class="token string">'缓考课程'</span><span class="token punctuation">,</span>
+				<span class="token string">'jysmc'</span><span class="token operator">:</span><span class="token string">'教研室'</span><span class="token punctuation">,</span>
+				
+				<span class="token string">'xmlbdm'</span><span class="token operator">:</span><span class="token string">'项目类别代码'</span><span class="token punctuation">,</span>
+				<span class="token string">'lx'</span><span class="token operator">:</span><span class="token string">'类型'</span><span class="token punctuation">,</span>
+				<span class="token string">'jfxm'</span><span class="token operator">:</span><span class="token string">'缴费项目'</span><span class="token punctuation">,</span>
+				<span class="token string">'jey'</span><span class="token operator">:</span><span class="token string">'金额(元)'</span><span class="token punctuation">,</span>
+				<span class="token string">'jfzt'</span><span class="token operator">:</span><span class="token string">'缴费状态'</span><span class="token punctuation">,</span>
+				<span class="token string">'jfsj'</span><span class="token operator">:</span><span class="token string">'缴费时间'</span><span class="token punctuation">,</span>
+				<span class="token string">'ddh'</span><span class="token operator">:</span><span class="token string">'订单号'</span><span class="token punctuation">,</span>
+				<span class="token string">'wjf'</span><span class="token operator">:</span><span class="token string">'未缴费'</span><span class="token punctuation">,</span>
+				<span class="token string">'yjf'</span><span class="token operator">:</span><span class="token string">'已缴费'</span><span class="token punctuation">,</span>
+				<span class="token string">'qxdd'</span><span class="token operator">:</span><span class="token string">'取消订单'</span><span class="token punctuation">,</span>
+				<span class="token string">'sxdd'</span><span class="token operator">:</span><span class="token string">'刷新订单'</span><span class="token punctuation">,</span>
+				<span class="token string">'zf'</span><span class="token operator">:</span><span class="token string">'支付'</span><span class="token punctuation">,</span>
+				<span class="token string">'ddmx'</span><span class="token operator">:</span><span class="token string">'订单明细'</span><span class="token punctuation">,</span>
+				<span class="token string">'ddxq'</span><span class="token operator">:</span><span class="token string">'订单详情'</span><span class="token punctuation">,</span>
+				<span class="token string">'xzdjfjl'</span><span class="token operator">:</span><span class="token string">'请选择待缴费记录！'</span><span class="token punctuation">,</span>
+				<span class="token string">'bnjfts'</span><span class="token operator">:</span><span class="token string">'该时间不能缴费，请实时关注缴费时间通知！'</span><span class="token punctuation">,</span>
+				<span class="token string">'wfjfsj'</span><span class="token operator">:</span><span class="token string">'该时间无法缴费！缴费时间:'</span><span class="token punctuation">,</span>
+				<span class="token string">'zhi'</span><span class="token operator">:</span><span class="token string">'至'</span><span class="token punctuation">,</span>
+				<span class="token string">'bxqbnjf'</span><span class="token operator">:</span><span class="token string">'在本学期不能缴费！'</span><span class="token punctuation">,</span>
+				<span class="token string">'znxzytdjfjl'</span><span class="token operator">:</span><span class="token string">'只能选择一条待缴费记录！'</span><span class="token punctuation">,</span>
+				<span class="token string">'yjfzjlsxym'</span><span class="token operator">:</span><span class="token string">'缴费项目中存在支付中或者已支付的数据，请刷新页面后再重新缴费!'</span><span class="token punctuation">,</span>
+				<span class="token string">'sjyc'</span><span class="token operator">:</span><span class="token string">'数据存在异常！'</span><span class="token punctuation">,</span>
+				<span class="token string">'czyptqrjf'</span><span class="token operator">:</span><span class="token string">'缴费项目中部分已提交存在缴费平台中，是否继续缴费？'</span><span class="token punctuation">,</span>
+				<span class="token string">'btlxbktsjf'</span><span class="token operator">:</span><span class="token string">'不同类型的缴费项目不能同时缴费！'</span><span class="token punctuation">,</span>
+				<span class="token string">'sqxn'</span><span class="token operator">:</span><span class="token string">'申请学年'</span><span class="token punctuation">,</span>
+				<span class="token string">'sqxq'</span><span class="token operator">:</span><span class="token string">'申请学期'</span><span class="token punctuation">,</span>
+				<span class="token string">'ddxx'</span><span class="token operator">:</span><span class="token string">'订单信息'</span><span class="token punctuation">,</span>
+				<span class="token string">'zfb'</span><span class="token operator">:</span><span class="token string">'支付宝'</span><span class="token punctuation">,</span>
+				<span class="token string">'sx'</span><span class="token operator">:</span><span class="token string">'刷新'</span><span class="token punctuation">,</span>
+				<span class="token string">'zfewm'</span><span class="token operator">:</span><span class="token string">'支付二维码'</span><span class="token punctuation">,</span>
+				<span class="token string">'qxddqr'</span><span class="token operator">:</span><span class="token string">'您确定要取消订单吗？若确定取消，请确保校园支付平台页面关闭！'</span><span class="token punctuation">,</span>
+				<span class="token string">'gddbxqbnjf'</span><span class="token operator">:</span><span class="token string">'该订单在本学期不能缴费!'</span><span class="token punctuation">,</span>
+				<span class="token string">'mzfkxfs'</span><span class="token operator">:</span><span class="token string">'没有可选支付方式!'</span><span class="token punctuation">,</span>
+				<span class="token string">'qxzzffs'</span><span class="token operator">:</span><span class="token string">'请选择支付方式!'</span><span class="token punctuation">,</span>
+				<span class="token string">'gzdw'</span> <span class="token operator">:</span><span class="token string">'工作单位'</span><span class="token punctuation">,</span>
+				<span class="token string">'ksfs'</span><span class="token operator">:</span><span class="token string">'考试方式'</span>
+			<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span>jQuery<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>另一个<code>js</code></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">;</span>
+<span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">$</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	$<span class="token punctuation">.</span>i18n<span class="token punctuation">.</span>map <span class="token operator">=</span> $<span class="token punctuation">.</span>i18n<span class="token punctuation">.</span>map <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+	$<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span>$<span class="token punctuation">.</span>i18n<span class="token punctuation">.</span>map<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+		<span class="token string">'msg_xk'</span> <span class="token operator">:</span> <span class="token string">'选课'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_dxyzmsx'</span> <span class="token operator">:</span> <span class="token string">'短信验证码失效！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_xf'</span> <span class="token operator">:</span> <span class="token string">'学分'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_tksbfwqm'</span> <span class="token operator">:</span> <span class="token string">'退课失败！服务器繁忙！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_qz'</span> <span class="token operator">:</span> <span class="token string">'权重'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_jcxx'</span> <span class="token operator">:</span> <span class="token string">'教材信息'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_jxbmc'</span> <span class="token operator">:</span> <span class="token string">'教学班'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_kcxz'</span> <span class="token operator">:</span> <span class="token string">'课程性质'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_jgfffw'</span> <span class="token operator">:</span> <span class="token string">'加密串错误，可以清除浏览器缓存后刷新网页重试！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_xjxbbkcfx'</span> <span class="token operator">:</span> <span class="token string">'{0}教学班已选，不可重复选择！'</span><span class="token punctuation">,</span>
+		<span class="token string">'syjxs'</span> <span class="token operator">:</span> <span class="token string">'距选课结束还剩{0}小时'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_skxq'</span> <span class="token operator">:</span> <span class="token string">'上课星期'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_tksbcxwzyc'</span> <span class="token operator">:</span> <span class="token string">'退课失败！出现未知异常！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_xksb'</span> <span class="token operator">:</span> <span class="token string">'选课失败！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_zkgb'</span> <span class="token operator">:</span> <span class="token string">'展开关闭'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_wu'</span> <span class="token operator">:</span> <span class="token string">'无'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_ymkzdkxzys'</span> <span class="token operator">:</span> <span class="token string">'一门课程最多可选{0}个志愿！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_qdytdkc'</span> <span class="token operator">:</span> <span class="token string">'您确定要退掉该课程吗？'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_dsx'</span> <span class="token operator">:</span> <span class="token string">'待筛选'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_you'</span> <span class="token operator">:</span> <span class="token string">'有'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_zdkxkcmc'</span> <span class="token operator">:</span> <span class="token string">'最多可选{0}门课程！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_kclb'</span> <span class="token operator">:</span> <span class="token string">'课程类别'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_jxbjsdd'</span> <span class="token operator">:</span> <span class="token string">'该教学班教师待定！'</span><span class="token punctuation">,</span>
+		<span class="token string">'txt-wx'</span> <span class="token operator">:</span> <span class="token string">'未选'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_jx'</span> <span class="token operator">:</span> <span class="token string">'禁选'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_jxms'</span> <span class="token operator">:</span> <span class="token string">'教学模式'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_yuanq'</span> <span class="token operator">:</span> <span class="token string">'学部'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_jhxy'</span> <span class="token operator">:</span> <span class="token string">'计划学院'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_bjgxk'</span> <span class="token operator">:</span> <span class="token string">'不及格选课'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_px'</span> <span class="token operator">:</span> <span class="token string">'排序'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_xskbyl'</span> <span class="token operator">:</span> <span class="token string">'学生课表预览'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_jxbyxzsxymkj'</span> <span class="token operator">:</span> <span class="token string">'该教学班已选中，刷新页面可见！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_cxxkxd'</span> <span class="token operator">:</span> <span class="token string">'请从上方“{0}”选项卡中选定'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_xuh'</span> <span class="token operator">:</span> <span class="token string">'序号'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_xskcls'</span> <span class="token operator">:</span> <span class="token string">'{0}课的老师'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_yjxk'</span> <span class="token operator">:</span> <span class="token string">'一键选主修课程'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_xjxb'</span> <span class="token operator">:</span> <span class="token string">'{0}教学班'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_srkcjxbcx'</span> <span class="token operator">:</span> <span class="token string">'可输入课程号/课程名称/教学班名称/教师姓名/教师工号查询!'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_cz'</span> <span class="token operator">:</span> <span class="token string">'操作'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_skjs'</span> <span class="token operator">:</span> <span class="token string">'上课教师'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_cx'</span> <span class="token operator">:</span> <span class="token string">'重修'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_zjxb'</span> <span class="token operator">:</span> <span class="token string">'主教学班'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_sksjdd'</span> <span class="token operator">:</span> <span class="token string">'上课时间/地点'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_skjc'</span> <span class="token operator">:</span> <span class="token string">'上课节次'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_kcjj'</span> <span class="token operator">:</span> <span class="token string">'课程简介'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg-qdxzmk'</span> <span class="token operator">:</span> <span class="token string">'选中之后将不可退，您确定要选这门课吗？'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_txyz'</span> <span class="token operator">:</span> <span class="token string">'退选验证'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_shi'</span> <span class="token operator">:</span> <span class="token string">'是'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_xttz'</span> <span class="token operator">:</span> <span class="token string">'系统调整'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_dxyzwsjhm'</span> <span class="token operator">:</span> <span class="token string">'退课需要短信验证，我们未找到您的手机号码，如有疑问，请与相关管理人员联系！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_qzz'</span> <span class="token operator">:</span> <span class="token string">'权重值'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_tx'</span> <span class="token operator">:</span> <span class="token string">'退选'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_xsf'</span> <span class="token operator">:</span> <span class="token string">'选上否'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_zy'</span> <span class="token operator">:</span> <span class="token string">'志愿'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_sfcx'</span> <span class="token operator">:</span> <span class="token string">'是否重修'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_dxyzmcw'</span> <span class="token operator">:</span> <span class="token string">'短信验证码错误！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_yggdsjbktk'</span> <span class="token operator">:</span> <span class="token string">'已过规定时间，不可退课！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_zt'</span> <span class="token operator">:</span> <span class="token string">'状态'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_jshzc'</span> <span class="token operator">:</span> <span class="token string">'教师/职称'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_zxs'</span> <span class="token operator">:</span> <span class="token string">'自选上'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_yxs'</span> <span class="token operator">:</span> <span class="token string">'已选上'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_tyk'</span> <span class="token operator">:</span> <span class="token string">'体育课'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_ywyl'</span> <span class="token operator">:</span> <span class="token string">'有无余量'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_zxf'</span> <span class="token operator">:</span> <span class="token string">'自选否'</span><span class="token punctuation">,</span>
+		<span class="token string">'syjts'</span> <span class="token operator">:</span> <span class="token string">'距选课结束还剩{0}天'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_xkbz'</span> <span class="token operator">:</span> <span class="token string">'选课备注'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_kssj'</span> <span class="token operator">:</span> <span class="token string">'考试时间'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_fou'</span> <span class="token operator">:</span> <span class="token string">'否'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_sy'</span> <span class="token operator">:</span> <span class="token string">'实验'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_jxdd'</span> <span class="token operator">:</span> <span class="token string">'教学地点'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_fwcs'</span> <span class="token operator">:</span> <span class="token string">'校验不通过，您可以刷新本网页后重试！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_txqz'</span> <span class="token operator">:</span> <span class="token string">'填写权重'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_glypkbkt'</span> <span class="token operator">:</span> <span class="token string">'该教学班由管理员配课生成，不可退！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_sj'</span> <span class="token operator">:</span> <span class="token string">'上机'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_qdyxkxqkc'</span> <span class="token operator">:</span> <span class="token string">'您正在选跨校区的课程，确定要选吗？'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_ym'</span> <span class="token operator">:</span> <span class="token string">'已满'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_yxrl'</span> <span class="token operator">:</span> <span class="token string">'已选/容量'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_qzzbcc'</span> <span class="token operator">:</span> <span class="token string">'请输入权重值，最大不超过{0}'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_ymkznxygjxb'</span> <span class="token operator">:</span> <span class="token string">'一门课程只能选一个教学班！'</span><span class="token punctuation">,</span>
+		<span class="token string">'txt-yx'</span> <span class="token operator">:</span> <span class="token string">'已选'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_yxxk'</span> <span class="token operator">:</span> <span class="token string">'有先行课'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_kcgs'</span> <span class="token operator">:</span> <span class="token string">'课程归属'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_ssly'</span> <span class="token operator">:</span> <span class="token string">'所属领域'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_jfkcbkt'</span> <span class="token operator">:</span> <span class="token string">'该课程已经缴费，不可退课！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_jsjj'</span> <span class="token operator">:</span> <span class="token string">'教师简介'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_yjxkywc'</span> <span class="token operator">:</span> <span class="token string">'一键选课已完成！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_wkxkc'</span> <span class="token operator">:</span> <span class="token string">'无可选课程！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_xzkc'</span> <span class="token operator">:</span> <span class="token string">'选子课程'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_sksj'</span> <span class="token operator">:</span> <span class="token string">'上课时间'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_bsblxkbktk'</span> <span class="token operator">:</span> <span class="token string">'不是本轮选的课，不可退课！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_jxbgs'</span> <span class="token operator">:</span> <span class="token string">'教学班个数'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_xq'</span> <span class="token operator">:</span> <span class="token string">'学期'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_xn'</span> <span class="token operator">:</span> <span class="token string">'学年'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_tjbj'</span> <span class="token operator">:</span> <span class="token string">'本专业推荐课程'</span><span class="token punctuation">,</span>
+		<span class="token string">'txt-no-bmxx'</span> <span class="token operator">:</span> <span class="token string">'对不起，未找到您的报名信息，不可选此类课程！'</span><span class="token punctuation">,</span>
+		<span class="token string">'txt-no-xksj'</span> <span class="token operator">:</span> <span class="token string">'对不起，当前时间不可选课！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_srkcjxbjscx'</span> <span class="token operator">:</span> <span class="token string">'可以输入课程号/名称、教学班名称、教师工号/姓名查询'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_ywylbkx'</span> <span class="token operator">:</span> <span class="token string">'对不起，该教学班已无余量，不可选！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg-ccbxqblxzgxkxfyq'</span> <span class="token operator">:</span> <span class="token string">'本学期本类型课程选课最高学分要求为{0}，当前本学期本类型课程选课总学分为({1}+{2}={3})，超出选课最高学分要求，不可选！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg-ccbxqblxzgxkmcyq'</span> <span class="token operator">:</span> <span class="token string">'本学期本类型课程选课最高门次要求为{0}，不可选！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_sbtdpzy'</span> <span class="token operator">:</span> <span class="token string">'鼠标拖动排志愿'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_bzxksjbkxgqz'</span><span class="token operator">:</span><span class="token string">'不在选课时间内，不可修改权重！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_xysjxbbkxgqz'</span><span class="token operator">:</span><span class="token string">'已选上的教学班不可修改权重！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_bsblxkjxbbkxgqz'</span><span class="token operator">:</span><span class="token string">'不是本轮选的教学班不可修改权重！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_wzyclxgly'</span><span class="token operator">:</span><span class="token string">'出现未知异常，请与管理员联系！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_cancel'</span><span class="token operator">:</span><span class="token string">'取 消'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_pzysb'</span><span class="token operator">:</span><span class="token string">'排志愿失败！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_ywqzbkzx'</span><span class="token operator">:</span><span class="token string">'已无权重，不可再选！'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_qdyxkxqkc'</span><span class="token operator">:</span><span class="token string">'您正在选跨校区的课程，确定要选吗？'</span><span class="token punctuation">,</span>
+		<span class="token string">'jxkkssyts'</span><span class="token operator">:</span><span class="token string">'距选课开始还剩{0}天'</span><span class="token punctuation">,</span>
+		<span class="token string">'jxkkssyxss'</span><span class="token operator">:</span><span class="token string">'距选课开始还剩{0}小时'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_yqtjxbct'</span><span class="token operator">:</span><span class="token string">'当前教学班与教学班{0}的上课时间冲突，确定要选吗？'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_sskcz'</span><span class="token operator">:</span><span class="token string">'所属课程组'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_skyy'</span><span class="token operator">:</span><span class="token string">'授课语言'</span><span class="token punctuation">,</span>
+		<span class="token string">'msg_rlylyx'</span><span class="token operator">:</span><span class="token string">'容量/余量/已选'</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span>jQuery<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>只能说我们学校的正方，真牛逼……，我们查看剩下的请求，寻找我们需要的参数<code>jxb_ids</code>查看，在这个url的post请求返回数据，我们发现了<code>jxb_id</code>,但是这长度……，emmmm,它和抢课的请求数据，貌似不是一个东西</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">http://192.168.0.1/jwglxt/xsxk/zzxkyzb_cxZzxkYzbPartDisplay.html?gnmkdm=N253512&amp;su=2037020202<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">{
+       "cxbj": "0",
+       "date": "二○二一年十二月三十日",
+       "dateDigit": "2021年12月30日",
+       "dateDigitSeparator": "2021-12-30",
+       "day": "30",
+       "jgpxzd": "1",
+       "jxb_id": "CB12BC186E18159DE053018A0B0AE07D", 
+       "jxbmc": "尔雅网络课程(2021-2022-2)-GENNET032-1",
+       "jxbzls": "1",
+       "kch": "GENNET032",
+       "kch_id": "899C046B3F901036E053018A0B0AAD86",
+       "kcmc": "机器的征途：空天科技",
+       "kcrow": "1",
+       "listnav": "false",
+       "localeKey": "zh_CN",
+       "month": "12",
+       "pageable": true,
+       "queryModel": {
+           "currentPage": 1,
+           "currentResult": 0,
+           "entityOrField": false,
+           "limit": 15,
+           "offset": 0,
+           "pageNo": 0,
+           "pageSize": 15,
+           "showCount": 10,
+           "sorts": [],
+           "totalCount": 0,
+           "totalPage": 0,
+           "totalResult": 0
+       }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>但是我们得到了<code>kcmc</code>，但是这玩意，貌似和请求时候的<code>kcmc</code>差了那么一点点</p>
+<p>选课的<code>kcmc</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">kcmc: (GENNET032)机器的征途：空天科技 - 1.0 学分<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>上面请求得到的<code>kcmc</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">"kcmc": "机器的征途：空天科技"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>好像是差点了什么，分析一下就可以看出，选课的<code>kcmc</code>是加入了<code>kch</code>和<code>xf</code>这两个参数，凑成了选课时的<code>kcmc</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">选课的kcmc = kch+请求返回的kcmc+xf+"学分"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>我们再看看这个请求的表单</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">njdm_id_list[0]: 2020
+zyh_id_list[0]: A727E45878450615E053018A0B0A2F90
+rwlx: 2
+xkly: 0
+bklx_id: 0
+xh_id: 2037020202
+xqh_id: 2
+jg_id: A7253F3574A97E39E053018A0B0A4280
+zyh_id: A727E45878450615E053018A0B0A2F90
+zyfx_id: wfx
+njdm_id: 2020
+bh_id: A8152059CD2B7253E053018A0B0A401E
+xbm: 1
+xslbdm: wlb
+ccdm: 3
+xsbj: 4294967296
+sfkknj: 0
+sfkkzy: 0
+sfkxq: 0
+kkbk: 0
+kkbkdj: 0
+sfkgbcx: 0
+sfrxtgkcxd: 0
+tykczgxdcs: 0
+xkxnm: 2021
+xkxqm: 12
+kklxdm: 10
+kspage: 1
+jspage: 10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>又是好多不知道的参数，全局搜索，最后发现，参数其实都在网页的源码里</p>
+<img src="https://gitee.com/wwj1026/image/raw/master/20211230/Ujf!Eb7umXOv.png" style="zoom:50%;">
+
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>iskxk<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>iskxk<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>jzxkf<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>jzxkf<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xkzgmc<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xkzgmc<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xkzgxf<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xkzgxf<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>35<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zkcs<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zkcs<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>12<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zxfs<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zxfs<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>36.0<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bdzcbj<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bdzcbj<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xkxnm<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xkxnm<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2021<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xkxqm<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xkxqm<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>12<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xkxnmc<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xkxnmc<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2021-2022<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xkxqmc<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xkxqmc<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xh_id<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xh_id<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2037020202<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xqh_id<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xqh_id<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>jg_id_1<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>jg_id_1<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>A7253F3574A97E39E053018A0B0A4280<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zyh_id<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zyh_id<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>A727E45878450615E053018A0B0A2F90<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zymc<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zymc<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>通信工程(人工智能学院)<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zyfx_id<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zyfx_id<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>wfx<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>njdm_id<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>njdm_id<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2020<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>njmc<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>njmc<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2020<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bh_id<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bh_id<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>A8152059CD2B7253E053018A0B0A401E<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xbm<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xbm<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xslbdm<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xslbdm<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>wlb<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xszxzt<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xszxzt<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ccdm<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ccdm<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xsbj<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xsbj<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>4294967296<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>t_njdm_id<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>t_njdm_id<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2020<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>t_zyh_id<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>t_zyh_id<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>A727E45878450615E053018A0B0A2F90<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>sfxsxkbz<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>sfxsxkbz<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xkczbj<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xkczbj<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>isSlct<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>isSlct<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>kklxdm<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>kklxdm<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xkkz_id<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xkkz_id<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>active<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>javascript:void(0)<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token function">queryCourse</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span><span class="token string">'01'</span><span class="token punctuation">,</span><span class="token string">'D3B20D25BAFD8737E053C98AA8C0D755'</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span> <span class="token attr-name">data-toggle</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>主修课程<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+						<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>firstKklxdm<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>firstKklxdm<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>01<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+						<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>firstXkkzId<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>firstXkkzId<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>D3B20D25BAFD8737E053C98AA8C0D755<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+			 		
+			 		
+		 		
+					
+			 		
+			 			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>javascript:void(0)<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token function">queryCourse</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span><span class="token string">'18'</span><span class="token punctuation">,</span><span class="token string">'D3B20D25BB178737E053C98AA8C0D755'</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span> <span class="token attr-name">data-toggle</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>公共课程<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+			 		
+		 		
+					
+			 		
+			 			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>javascript:void(0)<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token function">queryCourse</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span><span class="token string">'10'</span><span class="token punctuation">,</span><span class="token string">'D3B2C92D3A1E8C80E053CA8AA8C0B6F6'</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span> <span class="token attr-name">data-toggle</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>通识选修课<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+			 		
+		 		
+					
+			 		
+			 			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>javascript:void(0)<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token function">queryCourse</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span><span class="token string">'05'</span><span class="token punctuation">,</span><span class="token string">'D3B2C85E6081CC23E053C98AA8C0BEE8'</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span> <span class="token attr-name">data-toggle</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>体育分项<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+			 		
+		 		
+					
+			 		
+			 			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>javascript:void(0)<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token function">queryCourse</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span><span class="token string">'07'</span><span class="token punctuation">,</span><span class="token string">'D3B2DBA6B9DCD0AAE053C98AA8C02539'</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span> <span class="token attr-name">data-toggle</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>英语分项<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+			 		
+		 		
+					
+			 		
+			 			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>javascript:void(0)<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token function">queryCourse</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span><span class="token string">'34'</span><span class="token punctuation">,</span><span class="token string">'D3B2DBA6B9F2D0AAE053C98AA8C02539'</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span> <span class="token attr-name">data-toggle</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>形势与政策<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这么一看，所有请求的参数都在网页源码里，我们再来查看我们最需要的参数选课时<code>jxb_ids</code>在下面一个url的请求中</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">http://192.168.0.1/jwglxt/xsxk/zzxkyzb_cxJxbWithKchZzxkYzb.html?gnmkdm=N253512&amp;su=2037020202<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>请求的返回数据，我们找到了这个参数，但是它在返回的数据里叫<code>do_jxb_id</code>,牛逼……,同时在这个返回数据中还有上课的时间，地点，老师名称，已选人数和最大容量</p>
+<p>我们看一下这个请求的请求表单,发现只是多了一个<code>kch_id</code>而这个<code>kch_id</code>来自上一个请求的返回数据，也就是说上一个请求返回的<code>jxb_id</code>一点用都没有……</p>
+<p><img src="https://gitee.com/wwj1026/image/raw/master/20211230/5FBAcTUEraVG.png"></p>
+<p>这么一来，我们所有的选课参数都已经得到了</p>
+<p>简单画一个流程图</p>
+<p><img src="https://gitee.com/wwj1026/image/raw/master/20211230/UoYVbEJNH5ua.png"></p>
+<p>接下来就是代码编写环节，python的基本流程比较简单了</p>
+<h2 id="cloud-后话"><a href="#cloud-后话" class="headerlink" title=":cloud:后话"></a><span class="github-emoji"><span>☁</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2601.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>后话</h2><p>之前写过一个成品被举报了，我还是觉得，存在即合理，被举报呢也是正常的，一旦资源分配不公，在这个寻求公平的社会必然会遭到排挤，但是我还是那句话，或许你这个举报了，那下一次呢，别只做只会举报的小丑，永远只能看着别人，什么都得不到。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Wu Weijie</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://formemrs-j.github.io/2021/12/30/zheng-fang-jiao-wu-qiang-ke-suan-fa/">https://formemrs-j.github.io/2021/12/30/zheng-fang-jiao-wu-qiang-ke-suan-fa/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Wu Weijie</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%88%AC%E8%99%AB/">
+                                    <span class="chip bg-color">爬虫</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/12/30/zheng-fang-jiao-wu-qiang-ke-suan-fa/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="正方教务抢课算法">
+                        
+                        <span class="card-title">正方教务抢课算法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            正方教务网抢课分析(以浙江工商大学大学教务网为例)
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/python/" class="post-category">
+                                    python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%88%AC%E8%99%AB/">
+                        <span class="chip bg-color">爬虫</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/12/27/wo-de-2021/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/medias/featureimages/8.jpg" class="responsive-img" alt="我的2021">
+                        
+                        <span class="card-title">我的2021</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            2021的总结
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/daily/" class="post-category">
+                                    daily
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/diary/">
+                        <span class="chip bg-color">diary</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: WWJ&#39;s Blog<br />'
+            + '文章作者: Wu Weijie<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+      
+<footer class="page-footer bg-color">
+    
+    
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Wu Weijie</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">24.5k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "7";
+                        var startDate = "30";
+                        var startHour = "1";
+                        var startMinute = "1";
+                        var startSecond = "1";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/formemrs-j" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:ww275@sussex.ac.uk" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=383294956" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 383294956" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/3944680801/info" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/3944680801/info" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+    <a href="https://www.zhihu.com/people/formemrs-39" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/formemrs-39" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+
+    <a href="https://gitee.com/wwj1026/image/raw/master/20211206/u^PcX4*YZh9F.jpg" class="tooltipped" target="_blank" data-tooltip="关注我的微信" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/js/matery.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/js/FunnyTitle.js"></script>
+    <script src="/js/snow.js"></script>
+    <script src="/js/cursor.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/formemrs-j/formemrs-j.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
