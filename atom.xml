@@ -6,7 +6,7 @@
   <link href="https://formemrs-j.github.io/atom.xml" rel="self"/>
   
   <link href="https://formemrs-j.github.io/"/>
-  <updated>2021-12-29T19:28:35.315Z</updated>
+  <updated>2022-02-01T22:20:39.348Z</updated>
   <id>https://formemrs-j.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>不挂科急救室</title>
+    <link href="https://formemrs-j.github.io/2022/02/02/bu-gua-ke-ji-jiu-shi/"/>
+    <id>https://formemrs-j.github.io/2022/02/02/bu-gua-ke-ji-jiu-shi/</id>
+    <published>2022-02-01T22:09:42.000Z</published>
+    <updated>2022-02-01T22:20:39.348Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="缘由-taco"><a href="#缘由-taco" class="headerlink" title="缘由 :taco:"></a><strong>缘由</strong> <span class="github-emoji"><span>🌮</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f32e.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></h1><blockquote><p>起初只是为了练习html而随手写的一个网站，后来想着做都做了就完善一下吧。</p></blockquote><h1 id="主要构成-ice-cream"><a href="#主要构成-ice-cream" class="headerlink" title="主要构成:ice_cream:"></a><strong>主要构成</strong><span class="github-emoji"><span>🍨</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f368.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></h1><ul><li><p><strong>网站分享页面-<a href="http://www.buguake.icu/">www.buguake.icu</a></strong></p></li><li><p><strong>刷题界面</strong></p></li></ul><h2 id="网站分享页面"><a href="#网站分享页面" class="headerlink" title="网站分享页面"></a><strong>网站分享页面</strong></h2><p><strong>用了一个现成的项目<code>docsify</code>快速搭建起来，它可以将markdown文档渲染成html网页格式。</strong></p><h2 id="刷题界面"><a href="#刷题界面" class="headerlink" title="刷题界面"></a><strong>刷题界面</strong></h2><p><strong>基于<code>Github</code>的开源项目<code>爱刷题</code>修改而来,是爱刷题的简化版，只由前端构成，并没有后端，题库采用轻量的文本交换格式json,它还有小程序版本的，后面有时间可能也会试着搭建一下吧</strong></p><h1 id="后记-hamburger"><a href="#后记-hamburger" class="headerlink" title="后记:hamburger:"></a><strong>后记</strong><span class="github-emoji"><span>🍔</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f354.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></h1><blockquote><p>本身而言这个项目并没有什么技术含量，使用价值大于它的技术价值，本意是为了建立一个免费的资料分享平台和刷题平台，也当是寒假闲得无聊打发时间吧。</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;缘由-taco&quot;&gt;&lt;a href=&quot;#缘由-taco&quot; class=&quot;headerlink&quot; title=&quot;缘由 :taco:&quot;&gt;&lt;/a&gt;&lt;strong&gt;缘由&lt;/strong&gt; &lt;span class=&quot;github-emoji&quot;&gt;&lt;span&gt;🌮&lt;/span&gt;&lt;</summary>
+      
+    
+    
+    
+    <category term="网站" scheme="https://formemrs-j.github.io/categories/%E7%BD%91%E7%AB%99/"/>
+    
+    
+    <category term="html5" scheme="https://formemrs-j.github.io/tags/html5/"/>
+    
+  </entry>
   
   <entry>
     <title>正方教务抢课算法</title>
